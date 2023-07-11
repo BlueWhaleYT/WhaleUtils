@@ -22,8 +22,7 @@ plugins {
 
 tasks.dokkaHtmlMultiModule {
     val dokkaDir = rootProject.ext["dokkaDir"]
-//    outputDirectory.set(buildDir.resolve("docs"))
-    outputDirectory.set(file("docs"))
+    outputDirectory.set(buildDir.resolve("docs"))
     pluginConfiguration<DokkaBase, DokkaBaseConfiguration> {
         customStyleSheets = listOf(file("${dokkaDir}/css/custom.css"))
     }
