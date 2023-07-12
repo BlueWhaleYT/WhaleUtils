@@ -8,6 +8,28 @@ import android.provider.OpenableColumns
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
+/**
+ * Get the cursor of given [Uri]
+ *
+ * #### Example
+ * ```kt
+ * // Kotlin
+ * val cursor = uri.getCursor(context)
+ * ```
+ *
+ * ```java
+ * // Java
+ * Cursor cursor = SAFExtKt.getCursor(uri, context);
+ * ```
+ *
+ * @param context
+ * @param projection
+ * @param selection
+ * @param selectionArgs
+ * @param sortOrder
+ * @return the cursor of given [Uri]
+ * @see ContentResolver.query
+ */
 fun Uri.getCursor(
     context: Context,
     projection: Array<String>? = null,
@@ -29,7 +51,7 @@ fun Uri.getCursor(
 fun Uri.getFileContent(context: Context): String {
     val inputStream = context.contentResolver.openInputStream(this)
     val reader = BufferedReader(InputStreamReader(inputStream))
-    return reader.readLines().toString()
+    return reader.readLines().joinToString(separator = "\n")
 }
 
 /**

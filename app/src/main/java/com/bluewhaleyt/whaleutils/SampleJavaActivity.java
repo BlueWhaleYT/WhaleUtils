@@ -15,7 +15,6 @@ import com.bluewhaleyt.file_management.saf.utils.SAFUtils;
 
 public class SampleJavaActivity extends AppCompatActivity {
 
-    FileUtils fileUtils = new FileUtils();
     SAFUtils safUtils = new SAFUtils(this);
 
     @Override
@@ -26,13 +25,13 @@ public class SampleJavaActivity extends AppCompatActivity {
         TextView tvUri = findViewById(R.id.tv_uri);
         TextView tvPath = findViewById(R.id.tv_path);
 
-        if (fileUtils.isGrantedExternalStorageAccess()) {
+        if (safUtils.isGrantedExternalStorageAccess()) {
             safUtils.registerActivityResultLauncher(this, uri -> {
                 tvUri.setText(uri.toString());
-                tvPath.setText(FileExtKt.toRealFilePath(uri, this));
+                tvPath.setText(SAFExtKt.getMIMEType(uri, this));
                 return null;
             }).launch(safUtils.getIntentOpenDocument());
-        } else safUtils.requestAllFileAccess();
+        } else safUtils.requestAllFileAccess(true);
     }
 
     @Override
