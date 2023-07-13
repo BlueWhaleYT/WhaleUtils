@@ -18,6 +18,7 @@ plugins {
     alias(libs.plugins.kotlinAndroid) apply false
     alias(libs.plugins.androidLibrary) apply false
     id("org.jetbrains.dokka") version "1.8.20"
+    `maven-publish`
 }
 
 tasks.dokkaHtmlMultiModule {
@@ -28,6 +29,18 @@ tasks.dokkaHtmlMultiModule {
         customStyleSheets = listOf(file("${dokkaDir}/css/custom.css"))
     }
 }
+
+//publishing {
+//    publications {
+//        create<MavenPublication>("maven") {
+//            groupId = "com.bluewhaleyt"
+//            artifactId = "WhaleUtils"
+//            version = "1.0.1"
+//
+//            from(components["java"])
+//        }
+//    }
+//}
 
 ext {
     set("dokkaDir", "${rootDir}/dokka")
