@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
     id("org.jetbrains.dokka")
+    `maven-publish`
 }
 
 android {

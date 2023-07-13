@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
     id("org.jetbrains.dokka")
+    `maven-publish`
 }
 
 android {
@@ -69,9 +70,4 @@ dependencies {
     api(libs.androidx.documentfile)
     api(libs.androidx.navigation.compose)
     api(libs.accompanist.navigation.animation)
-
-
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
 }
