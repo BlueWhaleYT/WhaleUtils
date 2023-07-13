@@ -17,10 +17,10 @@
         android:theme="@style/Theme.WhaleUtils"
         tools:targetApi="31">
         <activity
-            android:name=".SampleJavaActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.WhaleUtils.SampleJava">
+            android:theme="@style/Theme.WhaleUtils">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

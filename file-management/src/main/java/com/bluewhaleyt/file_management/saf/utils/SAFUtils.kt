@@ -3,11 +3,16 @@ package com.bluewhaleyt.file_management.saf.utils
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.ContentUris
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
+import android.os.Environment
+import android.provider.DocumentsContract
+import android.provider.MediaStore
 import android.provider.Settings
+import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -16,10 +21,13 @@ import androidx.documentfile.provider.DocumentFile
 import com.bluewhaleyt.file_management.basic.extension.fileUtils
 import com.bluewhaleyt.file_management.basic.utils.FileUtils
 import com.bluewhaleyt.file_management.saf.extension.getFileContent
+import java.io.File
+import java.util.Stack
+import java.util.stream.Collectors.toList
 
 class SAFUtils(
     private val context: Context
-) : FileUtils(context) {
+) : FileUtils() {
 
     private val intentUriFlags: Int = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
 
@@ -66,7 +74,7 @@ class SAFUtils(
                 context.startActivity(intent)
             }
         } else {
-            fileUtils.requestWritePermission()
+            fileUtils.requestWritePermission(context)
         }
     }
 
@@ -107,6 +115,16 @@ class SAFUtils(
      *
      * @param callback
      */
+    fun registerActivityResultLauncher(activity: ComponentActivity, callback: (uri: Uri?) -> Unit): ActivityResultLauncher<Intent> {
+        return activity.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data: Intent? = result.data
+                val uri = data?.data
+                callback(uri)
+            }
+        }
+    }
+
     fun registerActivityResultLauncher(activity: AppCompatActivity, callback: (uri: Uri?) -> Unit): ActivityResultLauncher<Intent> {
         return activity.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
@@ -121,9 +139,67 @@ class SAFUtils(
         return uri.getFileContent(context)
     }
 
-    fun listDirectories(uri: Uri): Array<DocumentFile> {
-        val pickedDir = DocumentFile.fromTreeUri(context, uri)!!
-        return pickedDir.listFiles()
+    fun listDirectories(uri: Uri, filter: ((DocumentFile) -> Boolean)? = null): List<DocumentFile> {
+        val dir = DocumentFile.fromTreeUri(context, uri)!!
+        return if (filter == null) {
+            dir.listFiles().toList()
+        } else {
+            dir.listFiles().filter(filter)
+        }
+    }
+
+    fun listDirectoriesSubDir(uri: Uri, filter: ((DocumentFile) -> Boolean)? = null): List<DocumentFile> {
+        val dirs = mutableListOf<DocumentFile>()
+        val stack = Stack<DocumentFile>()
+        stack.push(DocumentFile.fromTreeUri(context, uri))
+        while (!stack.isEmpty()) {
+            val dir = stack.pop()
+            if (filter == null || filter(dir)) {
+                dirs.add(dir)
+            }
+            for (file in dir.listFiles()) {
+                if (file.isDirectory) {
+                    stack.push(file)
+                } else if (filter == null || filter(file)) {
+                    dirs.add(file)
+                }
+            }
+        }
+        return dirs
+    }
+
+    fun listOnlyDirectories(uri: Uri): List<DocumentFile> {
+        return listDirectories(uri) { it.isDirectory }
+    }
+
+    fun listOnlyFiles(uri: Uri): List<DocumentFile> {
+        return listDirectories(uri) { it.isFile }
+    }
+
+    fun listOnlyDirectoriesSubDir(uri: Uri): List<DocumentFile> {
+        return listDirectoriesSubDir(uri) { it.isDirectory }
+    }
+
+    fun listOnlyFilesSubDir(uri: Uri): List<DocumentFile> {
+        return listDirectoriesSubDir(uri) { it.isFile }
+    }
+
+    fun listFromFile(file: File): List<DocumentFile> {
+        return DocumentFile.fromFile(file).listFiles().toList()
+    }
+
+    fun listFromTreeUri(uri: Uri): List<DocumentFile> {
+        val treeUri = DocumentFile.fromTreeUri(context, uri)!!
+        return treeUri.listFiles().toList()
+    }
+
+    fun listFromSingleUri(uri: Uri): List<DocumentFile> {
+        val singleUri = DocumentFile.fromSingleUri(context, uri)!!
+        return singleUri.listFiles().toList()
+    }
+
+    fun listExternalStorage(): List<DocumentFile> {
+        return listFromFile(Environment.getExternalStorageDirectory())
     }
 
 }

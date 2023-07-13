@@ -7,11 +7,14 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.documentfile.provider.DocumentFile;
 
 import com.bluewhaleyt.file_management.basic.extension.FileExtKt;
 import com.bluewhaleyt.file_management.basic.utils.FileUtils;
 import com.bluewhaleyt.file_management.saf.extension.SAFExtKt;
 import com.bluewhaleyt.file_management.saf.utils.SAFUtils;
+
+import kotlin.jvm.functions.Function1;
 
 public class SampleJavaActivity extends AppCompatActivity {
 
@@ -31,12 +34,13 @@ public class SampleJavaActivity extends AppCompatActivity {
                 tvPath.setText(SAFExtKt.getMIMEType(uri, this));
                 return null;
             }).launch(safUtils.getIntentOpenDocument());
+
         } else safUtils.requestAllFileAccess(true);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        safUtils.setPermanentAccess(data);
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        safUtils.setPermanentAccess(data);
+//    }
 }

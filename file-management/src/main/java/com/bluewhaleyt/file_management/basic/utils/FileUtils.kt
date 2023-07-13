@@ -20,9 +20,7 @@ import java.io.IOException
  *
  * @constructor Create empty File utils
  */
-open class FileUtils(
-    private val context: Context
-) {
+open class FileUtils {
 
     companion object {
         private const val PERM_REQ_CODE_READ_WRITE = 1000
@@ -65,17 +63,17 @@ open class FileUtils(
         } else false
     }
 
-    fun requestPermission(permissions: Array<String>, requestCode: Int) {
+    fun requestPermission(context: Context, permissions: Array<String>, requestCode: Int) {
         context.startActivity(Intent(context, context.javaClass))
         ActivityCompat.requestPermissions(context as Activity, permissions, requestCode)
     }
 
-    fun requestWritePermission() {
-        requestPermission(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), PERM_REQ_CODE_READ_WRITE)
+    fun requestWritePermission(context: Context) {
+        requestPermission(context, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), PERM_REQ_CODE_READ_WRITE)
     }
 
-    fun requestReadPermission() {
-        requestPermission(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), PERM_REQ_CODE_READ_WRITE)
+    fun requestReadPermission(context: Context) {
+        requestPermission(context, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), PERM_REQ_CODE_READ_WRITE)
     }
 
     /**

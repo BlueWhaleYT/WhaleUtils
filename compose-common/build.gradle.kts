@@ -64,6 +64,12 @@ dependencies {
     api(libs.ui.graphics)
     api(libs.ui.tooling.preview)
     api(libs.material3)
+    api(libs.accompanist.systemuicontroller)
+    api(libs.androidx.material.icons.extended)
+    api(libs.androidx.documentfile)
+    api(libs.androidx.navigation.compose)
+    api(libs.accompanist.navigation.animation)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
