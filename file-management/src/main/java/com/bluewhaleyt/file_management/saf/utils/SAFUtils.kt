@@ -22,6 +22,7 @@ import com.bluewhaleyt.file_management.basic.extension.fileUtils
 import com.bluewhaleyt.file_management.basic.utils.FileUtils
 import com.bluewhaleyt.file_management.saf.extension.getFileContent
 import java.io.File
+import java.util.Locale.filter
 import java.util.Stack
 import java.util.stream.Collectors.toList
 
@@ -139,49 +140,42 @@ class SAFUtils(
         return uri.getFileContent(context)
     }
 
-    fun listDirectories(uri: Uri, filter: ((DocumentFile) -> Boolean)? = null): List<DocumentFile> {
+    fun listDirectories(uri: Uri): List<DocumentFile> {
         val dir = DocumentFile.fromTreeUri(context, uri)!!
-        return if (filter == null) {
-            dir.listFiles().toList()
-        } else {
-            dir.listFiles().filter(filter)
-        }
+        return dir.listFiles().toList()
     }
 
-    fun listDirectoriesSubDir(uri: Uri, filter: ((DocumentFile) -> Boolean)? = null): List<DocumentFile> {
+    fun listDirectoriesSubDir(uri: Uri): List<DocumentFile> {
         val dirs = mutableListOf<DocumentFile>()
         val stack = Stack<DocumentFile>()
         stack.push(DocumentFile.fromTreeUri(context, uri))
         while (!stack.isEmpty()) {
             val dir = stack.pop()
-            if (filter == null || filter(dir)) {
-                dirs.add(dir)
-            }
+            dirs.add(dir)
             for (file in dir.listFiles()) {
                 if (file.isDirectory) {
                     stack.push(file)
-                } else if (filter == null || filter(file)) {
-                    dirs.add(file)
                 }
+                dirs.add(file)
             }
         }
         return dirs
     }
 
     fun listOnlyDirectories(uri: Uri): List<DocumentFile> {
-        return listDirectories(uri) { it.isDirectory }
+        return listDirectories(uri).filter { it.isDirectory }
     }
 
     fun listOnlyFiles(uri: Uri): List<DocumentFile> {
-        return listDirectories(uri) { it.isFile }
+        return listDirectories(uri).filter { it.isFile }
     }
 
     fun listOnlyDirectoriesSubDir(uri: Uri): List<DocumentFile> {
-        return listDirectoriesSubDir(uri) { it.isDirectory }
+        return listDirectoriesSubDir(uri).filter { it.isDirectory }
     }
 
     fun listOnlyFilesSubDir(uri: Uri): List<DocumentFile> {
-        return listDirectoriesSubDir(uri) { it.isFile }
+        return listDirectoriesSubDir(uri).filter { it.isFile }
     }
 
     fun listFromFile(file: File): List<DocumentFile> {

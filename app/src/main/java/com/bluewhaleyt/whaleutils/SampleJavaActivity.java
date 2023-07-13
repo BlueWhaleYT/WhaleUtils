@@ -18,7 +18,7 @@ import kotlin.jvm.functions.Function1;
 
 public class SampleJavaActivity extends AppCompatActivity {
 
-    SAFUtils safUtils = new SAFUtils(this);
+    SAFUtils saf = new SAFUtils(this);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,14 +28,14 @@ public class SampleJavaActivity extends AppCompatActivity {
         TextView tvUri = findViewById(R.id.tv_uri);
         TextView tvPath = findViewById(R.id.tv_path);
 
-        if (safUtils.isGrantedExternalStorageAccess()) {
-            safUtils.registerActivityResultLauncher(this, uri -> {
+        if (saf.isGrantedExternalStorageAccess()) {
+            saf.registerActivityResultLauncher(this, uri -> {
                 tvUri.setText(uri.toString());
                 tvPath.setText(SAFExtKt.getMIMEType(uri, this));
                 return null;
-            }).launch(safUtils.getIntentOpenDocument());
+            }).launch(saf.getIntentOpenDocument());
 
-        } else safUtils.requestAllFileAccess(true);
+        } else saf.requestAllFileAccess(true);
     }
 
 //    @Override

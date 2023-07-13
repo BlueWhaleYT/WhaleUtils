@@ -7,21 +7,22 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
+import androidx.core.net.toUri
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.bluewhaleyt.whaleutils.ui.screen.file.FileManagerScreen
 import com.bluewhaleyt.whaleutils.ui.screen.file.editor.EditorScreen
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun App() {
     val navController = rememberNavController()
 
     Scaffold(
-        topBar = { TopAppBar() },
+//        topBar = { TopAppBar() },
         content = {
             Content(navController)
             Modifier.padding(it)
@@ -43,13 +44,14 @@ fun TopAppBar() {
 fun Content(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = Route.FileManager.MAIN.name
+        startDestination = Routes.FileManager.Main.route
     ) {
-        composable(Route.FileManager.MAIN.name) {
+        composable(Routes.FileManager.Main.route) {
             FileManagerScreen(navController)
         }
-        composable(Route.FileManager.EDITOR.name) {
-            EditorScreen(navController)
+        composable("${Routes.FileManager.Editor.route}/{uri}") {
+            val uri = it.arguments?.getString("uri")!!
+            EditorScreen(navController, uri)
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.bluewhaleyt.whaleutils.ui.screen.file
 
 import android.content.Context
+import android.net.Uri
 import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -22,7 +23,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.documentfile.provider.DocumentFile
 import androidx.navigation.NavController
 import com.bluewhaleyt.file_management.basic.extension.toRealFilePath
-import com.bluewhaleyt.whaleutils.ui.Route
+import com.bluewhaleyt.whaleutils.ui.Routes
 import com.bluewhaleyt.whaleutils.ui.theme.spacing
 
 @Composable
@@ -76,8 +77,11 @@ fun FileListItem(
         modifier = Modifier
             .fillMaxWidth()
             .clickable {
+                val uri = Uri.encode(item.uri.toString())
                 if (item.isFile) {
-                    navController.navigate(Route.FileManager.EDITOR.name)
+                    navController.navigate(
+                        "${Routes.FileManager.Editor.route}/$uri"
+                    )
                 }
             }
             .padding(MaterialTheme.spacing.medium)

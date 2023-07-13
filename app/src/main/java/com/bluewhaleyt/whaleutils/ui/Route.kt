@@ -1,8 +1,8 @@
 package com.bluewhaleyt.whaleutils.ui
 
-class Route {
-    enum class FileManager {
-        MAIN,
-        EDITOR
+sealed class Routes(val route: String) {
+    class FileManager {
+        object Main : Routes("fm_main")
+        object Editor : Routes("fm_editor")
     }
 }
