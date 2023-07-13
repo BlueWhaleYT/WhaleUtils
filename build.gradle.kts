@@ -30,17 +30,15 @@ tasks.dokkaHtmlMultiModule {
     }
 }
 
-//publishing {
-//    publications {
-//        create<MavenPublication>("maven") {
-//            groupId = "com.bluewhaleyt"
-//            artifactId = "WhaleUtils"
-//            version = "1.0.1"
-//
-//            from(components["java"])
-//        }
-//    }
-//}
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.bluewhaleyt"
+            artifactId = "WhaleUtils"
+            version = "1.0.0"
+        }
+    }
+}
 
 ext {
     set("dokkaDir", "${rootDir}/dokka")
