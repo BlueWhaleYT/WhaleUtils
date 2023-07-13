@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
 //    id("org.jetbrains.dokka")
+    `maven-publish`
 }
 
 android {
