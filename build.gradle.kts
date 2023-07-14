@@ -30,16 +30,6 @@ tasks.dokkaHtmlMultiModule {
     }
 }
 
-project.afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                groupId = "com.bluewhaleyt.whaleutils"
-            }
-        }
-    }
-}
-
 ext {
     set("dokkaDir", "${rootDir}/dokka")
 

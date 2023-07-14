@@ -50,6 +50,18 @@ android {
     }
 }
 
+project.afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                groupId = "com.bluewhaleyt.whaleutils"
+                artifactId = "file-management"
+                version = "1.0.0"
+            }
+        }
+    }
+}
+
 dependencies {
     implementation(project(":common"))
 

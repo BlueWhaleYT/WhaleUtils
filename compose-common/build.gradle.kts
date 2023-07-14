@@ -55,6 +55,18 @@ android {
     }
 }
 
+project.afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                groupId = "com.bluewhaleyt.whaleutils"
+                artifactId = "compose-common"
+                version = "1.0.0"
+            }
+        }
+    }
+}
+
 dependencies {
     api(platform(libs.compose.bom))
     api(libs.core.ktx)
