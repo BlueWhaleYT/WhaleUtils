@@ -59,7 +59,7 @@ afterEvaluate {
         publications {
             create<MavenPublication>("release") {
                 artifact(sourcesJar.get())
-                groupId = "com.bluewhaleyt.whaleutils"
+                groupId = "com.github.BlueWhaleYT.WhaleUtils"
                 artifactId = "common"
                 version = "1.0.0"
             }
