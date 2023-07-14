@@ -60,13 +60,16 @@ dependencies {
     api(libs.core.ktx)
     api(libs.lifecycle.runtime.ktx)
     api(libs.activity.compose)
+
     api(libs.ui)
     api(libs.ui.graphics)
     api(libs.ui.tooling.preview)
+
     api(libs.material3)
-    api(libs.accompanist.systemuicontroller)
     api(libs.androidx.material.icons.extended)
-    api(libs.androidx.documentfile)
+
     api(libs.androidx.navigation.compose)
+    
+    api(libs.accompanist.systemuicontroller)
     api(libs.accompanist.navigation.animation)
 }

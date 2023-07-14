@@ -52,4 +52,6 @@ android {
 
 dependencies {
     implementation(project(":common"))
+
+    api(libs.androidx.documentfile)
 }
