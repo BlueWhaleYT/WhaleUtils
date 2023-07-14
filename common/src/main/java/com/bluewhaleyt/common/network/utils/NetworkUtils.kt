@@ -6,20 +6,9 @@ import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 
-/**
- * NetworkUtils aims to simplify and quickly utilize the functions of networking.
- *
- * @constructor Create empty Network utils
- */
 class NetworkUtils {
     companion object {
 
-        /**
-         * Determines if network is connected and available on current devices.
-         *
-         * @param context
-         * @return `true` if network is available, `false` otherwise
-         */
         fun isNetworkConnected(context: Context): Boolean {
             val connectivityManager =
                 context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

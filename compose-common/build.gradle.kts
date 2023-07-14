@@ -47,7 +47,7 @@ android {
         pluginConfiguration<DokkaBase, DokkaBaseConfiguration> {
             dokkaSourceSets.configureEach {
                 includes.from(
-                    "$dokkaDir/common/CommonMain.md"
+                    "$dokkaDir/modules/compose-common/ComposeCommon.md"
                 )
             }
             customStyleSheets = listOf(file("${dokkaDir}/css/custom.css"))

@@ -6,21 +6,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-/**
- * ColorUtils aims to
- *
- * @constructor Create empty Color utils
- */
 class ColorUtils {
     companion object {
 
-        /**
-         * Determine if dynamic color is available
-         *
-         * @return `true` if dynamic color is available on current SDK level, i.e. `>=31` (Android 12+), `false` otherwise
-         * @see [Build.VERSION.SDK_INT]
-         * @see [Build.VERSION_CODES.S]
-         */
         @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.S)
         fun isDynamicColorAvailable(): Boolean {
             return Build.VERSION.SDK_INT >= Build.VERSION_CODES.S

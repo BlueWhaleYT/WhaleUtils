@@ -45,25 +45,6 @@ class SAFUtils(
         return intent
     }
 
-    /**
-     * Request All File Access permission
-     *
-     * #### Example
-     * ```kt
-     * // Kotlin
-     * val saf = SAFUtils(context)
-     * saf.requestAllFileAccess()
-     * ```
-     *
-     * ```java
-     * // Java
-     * SAFUtils saf = new SAFUtils(context);
-     * saf.requestAllFileAccess(true);
-     * ```
-     *
-     * @param withNavigate navigate to the current package
-     * @see Uri.fromParts
-     */
     fun requestAllFileAccess(withNavigate: Boolean = true) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             if (!isGrantedExternalStorageAccess()) {
@@ -79,11 +60,6 @@ class SAFUtils(
         }
     }
 
-    /**
-     * Set permanent access
-     *
-     * @param data
-     */
     @SuppressLint("WrongConstant")
     fun setPermanentAccess(data: Intent) {
         val uri: Uri?
@@ -93,29 +69,6 @@ class SAFUtils(
         }
     }
 
-    /**
-     * Register activity result launcher
-     *
-     * #### Example
-     * ```kt
-     * // Kotlin
-     * val saf = SAFUtils(context)
-     * val launcher = saf.registerActivityResultLauncher(activity) { uri ->
-     *     val filePath = uri.toRealFilePath(context)
-     * }
-     * ```
-     *
-     * ```java
-     * // Java
-     * SAFUtils saf = new SAFUtils(this);
-     * ActivityResultLauncher<Intent> launcher = saf.registerActivityResultLauncher(activity, uri -> {
-     *     String filePath = FileExtKt.toRealFilePath(uri, this);
-     *     return null;
-     * });
-     * ```
-     *
-     * @param callback
-     */
     fun registerActivityResultLauncher(activity: ComponentActivity, callback: (uri: Uri?) -> Unit): ActivityResultLauncher<Intent> {
         return activity.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
