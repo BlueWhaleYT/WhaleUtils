@@ -34,7 +34,7 @@ project.afterEvaluate {
     publishing {
         publications {
             create<MavenPublication>("release") {
-
+                groupId = "com.bluewhaleyt.whaleutils"
             }
         }
     }
