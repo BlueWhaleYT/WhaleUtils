@@ -67,7 +67,6 @@ afterEvaluate {
                 artifact(sourcesJar.get())
                 groupId = "com.github.BlueWhaleYT.WhaleUtils"
                 artifactId = "compose-common"
-                version = "1.0.0"
             }
         }
     }
