@@ -58,7 +58,7 @@ afterEvaluate {
     publishing {
         publications {
             create<MavenPublication>("release") {
-                artifact(sourcesJar.get())
+
                 groupId = "com.bluewhaleyt.whaleutils"
                 artifactId = "common"
                 version = "1.0.0"
