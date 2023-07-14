@@ -56,7 +56,6 @@ android {
 }
 
 dependencies {
-
     api(platform(libs.compose.bom))
     api(libs.core.ktx)
     api(libs.lifecycle.runtime.ktx)

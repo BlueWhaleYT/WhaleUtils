@@ -30,13 +30,11 @@ tasks.dokkaHtmlMultiModule {
     }
 }
 
-afterEvaluate {
+project.afterEvaluate {
     publishing {
         publications {
-            create<MavenPublication>("maven") {
-                groupId = "com.bluewhaleyt"
-                artifactId = "WhaleUtils"
-                version = "1.0.0"
+            create<MavenPublication>("release") {
+
             }
         }
     }
