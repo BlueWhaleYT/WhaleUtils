@@ -59,7 +59,7 @@ afterEvaluate {
     publishing {
         publications {
             create<MavenPublication>("release") {
-
+                artifact(sourcesJar.get())
                 groupId = "com.bluewhaleyt.whaleutils"
                 artifactId = "file-management"
                 version = "1.0.0"
