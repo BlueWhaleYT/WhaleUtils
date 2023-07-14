@@ -63,10 +63,12 @@ val sourcesJar by tasks.registering(Jar::class) {
 afterEvaluate {
     publishing {
         publications {
-            create<MavenPublication>("release") {
+            create<MavenPublication>("snapshot") {
                 artifact(sourcesJar.get())
+
                 groupId = "com.github.BlueWhaleYT.WhaleUtils"
                 artifactId = "compose-common"
+                version = "${project.version}-SNAPSHOT"
             }
         }
     }
