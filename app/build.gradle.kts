@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.bluewhaleyt.whaleutils"
-    compileSdk = 34
+    compileSdk = rootProject.ext["compileSdk"] as Int
 
     defaultConfig {
         applicationId = "com.bluewhaleyt.whaleutils"
-        minSdk = 26
-        targetSdk = 33
+        minSdk = rootProject.ext["minSdk"] as Int
+        targetSdk = rootProject.ext["targetSdk"] as Int
         versionCode = 1
         versionName = "1.0.0"
 
@@ -33,11 +33,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = rootProject.ext["javaVersion"] as JavaVersion
+        targetCompatibility = rootProject.ext["javaVersion"] as JavaVersion
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = rootProject.ext["jvmTarget"] as String
     }
     buildFeatures {
         compose = true

@@ -11,10 +11,10 @@ plugins {
 
 android {
     namespace = "com.bluewhaleyt.file_management"
-    compileSdk = 34
+    compileSdk = rootProject.ext["compileSdk"] as Int
 
     defaultConfig {
-        minSdk = 26
+        minSdk = rootProject.ext["minSdk"] as Int
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -30,11 +30,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = rootProject.ext["javaVersion"] as JavaVersion
+        targetCompatibility = rootProject.ext["javaVersion"] as JavaVersion
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = rootProject.ext["jvmTarget"] as String
     }
     tasks.dokkaHtmlPartial.configure {
         val dokkaDir = rootProject.ext["dokkaDir"]
