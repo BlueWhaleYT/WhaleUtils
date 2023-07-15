@@ -50,17 +50,11 @@ android {
     }
 }
 
-val sourcesJar by tasks.registering(Jar::class) {
-    archiveClassifier.set("sources")
-    from(android.sourceSets.getByName("main").java.srcDirs)
-}
-
 afterEvaluate {
     publishing {
         publications {
             create<MavenPublication>("release") {
-                artifact(sourcesJar.get())
-
+                from(components["release"])
                 groupId = "com.github.BlueWhaleYT.WhaleUtils"
                 artifactId = "file-management"
                 version = "1.0.0"
