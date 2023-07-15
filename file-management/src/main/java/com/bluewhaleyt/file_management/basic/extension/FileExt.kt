@@ -17,13 +17,15 @@ private val fileUtils = FileUtils()
 internal const val DEPRECATED_TO_REAL_FILE_PATH =
     """
     This function is deprecated because it uses file paths to handle file management, which may cause unexpected behavior or errors on newer versions of Android.
-    The Uri to be strictly converted as an actual file path is not highly recommended. Use it at your own risk.
-    
-    Please use it for just DISPLAYING real file path to users.
     """
 
 /**
  * Gets the real file path from a [Uri].
+ *
+ * <p class="note danger">
+ *     The Uri to be strictly converted as an actual file path is not highly recommended. Use it at your own risk.
+ *     Please use it for just displaying real file path to users.
+ * </p>
  *
  * @receiver [Uri]
  *
