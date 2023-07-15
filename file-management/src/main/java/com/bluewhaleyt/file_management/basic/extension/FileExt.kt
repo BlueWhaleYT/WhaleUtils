@@ -6,7 +6,7 @@ import android.provider.DocumentsContract
 import com.bluewhaleyt.file_management.basic.utils.FileUtils
 import java.io.File
 
-val fileUtils = FileUtils()
+private val fileUtils = FileUtils()
 
 internal const val DEPRECATED_TO_REAL_FILE_PATH =
     """
@@ -16,46 +16,53 @@ internal const val DEPRECATED_TO_REAL_FILE_PATH =
     Please use it for just DISPLAYING real file path to users.
     """
 
+/**
+ * Gets the real file path from a [Uri].
+ *
+ * @param context the context to use for resolving the [Uri].
+ * @param fromDocumentTree indicates whether to use the DocumentTree [Uri] or not.
+ *
+ * @return the real file path from the [Uri].
+ *
+ * @see UriResolver.getPathFromUri
+ * @see Uri.toDocumentedUri
+ */
 @Deprecated(
     message = DEPRECATED_TO_REAL_FILE_PATH,
     replaceWith = ReplaceWith(
-        expression = "Uri-based file management. See the Android documentation on file management for more information.",
+        expression = "",
         imports = [
             "com.bluewhaleyt.file_management.saf.extension.SAFExtKt",
             "com.bluewhaleyt.file_management.saf.extension.SAFUtils"
         ]
     )
 )
-fun Uri.toRealFilePath(context: Context): String {
-    return try {
-        UriResolver.getPathFromUri(context, this)
-    } catch (e: IllegalArgumentException) {
-        throw IllegalArgumentException("Uri is from document tree, please try to use Uri#toRealFilePathFromDocumentTree() instead.")
-    }
+fun Uri.toRealFilePath(context: Context, fromDocumentTree: Boolean = false): String {
+    val uri = if (fromDocumentTree) this.toDocumentedUri() else this
+    return UriResolver.getPathFromUri(context, uri)
 }
 
-@Deprecated(
-    message = DEPRECATED_TO_REAL_FILE_PATH,
-    replaceWith = ReplaceWith(
-        expression = "Uri-based file management. See the Android documentation on file management for more information.",
-        imports = [
-            "com.bluewhaleyt.file_management.saf.extension.SAFExtKt",
-            "com.bluewhaleyt.file_management.saf.extension.SAFUtils"
-        ]
-    )
-)
-fun Uri.toRealFilePathFromDocumentTree(context: Context): String {
-    return try {
-        UriResolver.getPathFromUri(context, this.toDocumentedUri())
-    } catch (e: IllegalArgumentException) {
-        throw IllegalArgumentException("Uri is not from document tree, please try to use Uri#toRealFilePath() instead.")
-    }
-}
-
+/**
+ * Converts a [Uri] to a documented [Uri] by building [Uri] using [DocumentsContract.buildDocumentUriUsingTree]
+ * and [DocumentsContract.getTreeDocumentId] methods.
+ *
+ * @return [Uri] object that represents a documented [Uri].
+ *
+ * @see DocumentsContract.buildDocumentUriUsingTree
+ * @see DocumentsContract.getTreeDocumentId
+ */
 fun Uri.toDocumentedUri(): Uri {
     return DocumentsContract.buildDocumentUriUsingTree(this, DocumentsContract.getTreeDocumentId(this))
 }
 
+/**
+ * Reads the content of a file specified by this string.
+ *
+ * @return the content of the file as a string, or an empty string if the file does not exist
+ *
+ * @see File
+ * @see [FileUtils.createNewFile]
+ */
 fun String.getFileContent(): String {
     val file = File(this)
     fileUtils.createNewFile(this)
@@ -68,10 +75,26 @@ fun String.getFileContent(): String {
     return sb.toString()
 }
 
+/**
+ * Returns the file name from a given file path string.
+ *
+ * @return The file name from the file path string.
+ *
+ * @see Uri.parse
+ */
 fun String.getFileName(): String {
     return Uri.parse(this).lastPathSegment!!
 }
 
+/**
+ * Returns the file extension of the given string.
+ *
+ * @return the file extension, or an empty string if the file has no extension.
+ *
+ * @see String.getFileName
+ * @see String.indexOf
+ * @see String.substring
+ */
 fun String.getFileExtension(): String {
     var ext = ""
     val path = this.getFileName()
@@ -84,47 +107,126 @@ fun String.getFileExtension(): String {
     return ext
 }
 
+/**
+ * Returns the size of the file located at the given path.
+ *
+ * @return The size of the file in bytes.
+ *
+ * @see File.length
+ */
 fun String.getFileSize(): Long {
     return File(this).length()
 }
 
+/**
+ * Calculates the 'file size strength' of the string, based on the maximum value provided.
+ *
+ * @param max The maximum value allowed for the file size strength. Default value is `100`.
+ *
+ * @return The calculated file size strength of the string.
+ *
+ * @see String.getFileSize
+ */
 fun String.getFileSizeStrength(max: Int = 100): Long {
     return (getFileSize() / 1024 / 1024) / max
 }
 
+/**
+ * Returns `true` if the file represented by this [String] exists in the file system, `false` otherwise.
+ *
+ * @return `true` if the file exists, `false` otherwise
+ *
+ * @see File.exists
+ */
 fun String.isFileExist(): Boolean {
     return File(this).exists()
 }
 
+/**
+ * Returns `true` if the file represented by this [String] is a regular file, `false` otherwise.
+ *
+ * @return `true` if the file is a regular file, `false` otherwise
+ *
+ * @see File.isFile
+ */
 fun String.isFile(): Boolean {
     return File(this).isFile
 }
 
+/**
+ * Returns `true` if the file represented by this [String] is empty, `false` otherwise.
+ *
+ * @return `true` if the file is empty, `false` otherwise
+ *
+ * @see getFileContent
+ */
 fun String.isFileEmpty(): Boolean {
     return this.getFileContent().isEmpty()
 }
 
+/**
+ * Returns `true` if the file represented by this [String] is a directory, `false` otherwise.
+ *
+ * @return `true` if the file is a directory, `false` otherwise
+ *
+ * @see File.isDirectory
+ */
 fun String.isDirectory(): Boolean {
     return File(this).isDirectory
 }
 
+/**
+ * Returns `true` if the directory represented by this [String] is empty, `false` otherwise.
+ *
+ * @return `true` if the directory is empty, `false` otherwise
+ *
+ * @see File.listFiles
+ */
 fun String.isDirectoryEmpty(): Boolean {
     val content: Array<out File>? = File(this).listFiles()
     return content?.size == 0
 }
 
+/**
+ * Returns `true` if the file represented by this [String] is hidden, `false` otherwise.
+ *
+ * @return `true` if the file is hidden, `false` otherwise
+ *
+ * @see File.isHidden
+ */
 fun String.isFileHidden(): Boolean {
     return File(this).isHidden
 }
 
+/**
+ * Returns `true` if the file represented by this [String] is readable, `false` otherwise.
+ *
+ * @return `true` if the file is readable, `false` otherwise
+ *
+ * @see File.canRead
+ */
 fun String.isFileReadable(): Boolean {
     return File(this).canRead()
 }
 
+/**
+ * Returns `true` if the file represented by this [String] is writable, `false` otherwise.
+ *
+ * @return `true` if the file is writable, `false` otherwise
+ *
+ * @see File.canWrite
+ */
 fun String.isFileWritable(): Boolean {
     return File(this).canWrite()
 }
 
+/**
+ * Returns `true` if the file represented by this [String] is executable, `false` otherwise.
+ *
+ * @return `true` if the file is executable, `false` otherwise
+ *
+ * @see File.canExecute
+ */
 fun String.isFileExecutable(): Boolean {
     return File(this).canExecute()
 }

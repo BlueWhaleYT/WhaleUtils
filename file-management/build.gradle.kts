@@ -1,5 +1,6 @@
 import org.jetbrains.dokka.base.DokkaBase
 import org.jetbrains.dokka.base.DokkaBaseConfiguration
+import java.net.URL
 
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
@@ -43,6 +44,11 @@ android {
                 includes.from(
                     "$dokkaDir/modules/file-management/FileManagement.md"
                 )
+                sourceLink {
+                    localDirectory.set(file("src/main/java"))
+                    remoteUrl.set(URL("https://github.com/BlueWhaleYT/WhaleUtils/blob/main/file-management/src/main/java"))
+                    remoteLineSuffix.set("#L")
+                }
             }
             customStyleSheets = listOf(file("${dokkaDir}/css/custom.css"))
             separateInheritedMembers = true
