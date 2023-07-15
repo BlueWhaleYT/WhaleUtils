@@ -1,36 +1,42 @@
 package com.bluewhaleyt.file_management.saf.utils
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.ContentUris
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
-import android.provider.DocumentsContract
-import android.provider.MediaStore
 import android.provider.Settings
 import androidx.activity.ComponentActivity
+import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.documentfile.provider.DocumentFile
 import com.bluewhaleyt.file_management.basic.utils.FileUtils
 import com.bluewhaleyt.file_management.saf.extension.getFileContent
 import java.io.File
-import java.util.Locale.filter
 import java.util.Stack
-import java.util.stream.Collectors.toList
 
 class SAFUtils(
     private val context: Context
 ) : FileUtils() {
 
+    /**
+     * A value that holds the flags for granting read and write permissions to a URI in an Intent.
+     * The value is initialized with the bitwise or of two flag values:
+     * [Intent.FLAG_GRANT_READ_URI_PERMISSION] and [Intent.FLAG_GRANT_WRITE_URI_PERMISSION].
+     */
     private val intentUriFlags: Int = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
 
+    /**
+     * Returns an intent for opening a document.
+     *
+     * @return The intent for opening a document.
+     *
+     * @see Intent.ACTION_OPEN_DOCUMENT
+     */
     val intentOpenDocument: Intent get() {
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
         intent.type = "*/*"
@@ -38,12 +44,28 @@ class SAFUtils(
         return intent
     }
 
+    /**
+     * Returns an intent for opening a document.
+     *
+     * @return The intent for opening a document.
+     *
+     * @see Intent.ACTION_OPEN_DOCUMENT_TREE
+     */
     val intentOpenDocumentTree: Intent get() {
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
         intent.flags = intentUriFlags
         return intent
     }
 
+    /**
+     * Requests access to all files on external storage.
+     * If current SDK is lower than [Build.VERSION_CODES.R], will call [FileUtils.requestWritePermission] instead.
+     *
+     * @param withNavigate Whether to navigate to the part of current package if permission is not granted.
+     *
+     * @see Uri.fromParts
+     * @see FileUtils.requestWritePermission
+     */
     fun requestAllFileAccess(withNavigate: Boolean = true) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             if (!isGrantedExternalStorageAccess()) {
@@ -59,6 +81,13 @@ class SAFUtils(
         }
     }
 
+    /**
+     * Grants permanent access to a URI to the calling application.
+     *
+     * @param data The intent containing the [Uri] data.
+     *
+     * @see Context.getContentResolver
+     */
     @SuppressLint("WrongConstant")
     fun setPermanentAccess(data: Intent) {
         val uri: Uri?
@@ -68,23 +97,23 @@ class SAFUtils(
         }
     }
 
+    private fun handleActivityResult(result: ActivityResult, callback: (uri: Uri?) -> Unit) {
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data: Intent? = result.data
+            val uri = data?.data
+            callback(uri)
+        }
+    }
+
     fun registerActivityResultLauncher(activity: ComponentActivity, callback: (uri: Uri?) -> Unit): ActivityResultLauncher<Intent> {
         return activity.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                val data: Intent? = result.data
-                val uri = data?.data
-                callback(uri)
-            }
+            handleActivityResult(result, callback)
         }
     }
 
     fun registerActivityResultLauncher(activity: AppCompatActivity, callback: (uri: Uri?) -> Unit): ActivityResultLauncher<Intent> {
         return activity.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                val data: Intent? = result.data
-                val uri = data?.data
-                callback(uri)
-            }
+            handleActivityResult(result, callback)
         }
     }
 
