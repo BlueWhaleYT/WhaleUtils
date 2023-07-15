@@ -6,6 +6,12 @@ import android.provider.DocumentsContract
 import com.bluewhaleyt.file_management.basic.utils.FileUtils
 import java.io.File
 
+@Retention(AnnotationRetention.SOURCE)
+@Target(AnnotationTarget.FUNCTION)
+annotation class FilePathReceiver(
+    val message: String = "Invalid argument: this function only works with file path strings"
+)
+
 private val fileUtils = FileUtils()
 
 internal const val DEPRECATED_TO_REAL_FILE_PATH =
@@ -61,12 +67,13 @@ fun Uri.toDocumentedUri(): Uri {
 /**
  * Reads the content of a file specified by this string.
  *
- * @receiver the file path of [String]
+ * @receiver the file path of [String] that accepts by [FilePathReceiver]
  * @return the content of the file as a string, or an empty string if the file does not exist
  *
  * @see File
  * @see [FileUtils.createNewFile]
  */
+@FilePathReceiver
 fun String.getFileContent(): String {
     val file = File(this)
     fileUtils.createNewFile(this)
@@ -82,11 +89,12 @@ fun String.getFileContent(): String {
 /**
  * Returns the file name from a given file path string.
  *
- * @receiver the file path of [String]
+ * @receiver the file path of [String] that accepts by [FilePathReceiver]
  * @return The file name from the file path string.
  *
  * @see Uri.parse
  */
+@FilePathReceiver
 fun String.getFileName(): String {
     return Uri.parse(this).lastPathSegment!!
 }
@@ -94,13 +102,14 @@ fun String.getFileName(): String {
 /**
  * Returns the file extension of the given string.
  *
- * @receiver the file path of [String]
+ * @receiver the file path of [String] that accepts by [FilePathReceiver]
  * @return the file extension, or an empty string if the file has no extension.
  *
  * @see String.getFileName
  * @see String.indexOf
  * @see String.substring
  */
+@FilePathReceiver
 fun String.getFileExtension(): String {
     var ext = ""
     val path = this.getFileName()
@@ -116,11 +125,12 @@ fun String.getFileExtension(): String {
 /**
  * Returns the size of the file located at the given path.
  *
- * @receiver the file path of [String]
+ * @receiver the file path of [String] that accepts by [FilePathReceiver]
  * @return The size of the file in bytes.
  *
  * @see File.length
  */
+@FilePathReceiver
 fun String.getFileSize(): Long {
     return File(this).length()
 }
@@ -128,12 +138,13 @@ fun String.getFileSize(): Long {
 /**
  * Calculates the 'file size strength' of the string, based on the maximum value provided.
  *
- * @receiver the file path of [String]
+ * @receiver the file path of [String] that accepts by [FilePathReceiver]
  * @param max The maximum value allowed for the file size strength. Default value is `100`.
  * @return The calculated file size strength of the string.
  *
  * @see String.getFileSize
  */
+@FilePathReceiver
 fun String.getFileSizeStrength(max: Int = 100): Long {
     return (getFileSize() / 1024 / 1024) / max
 }
@@ -141,11 +152,12 @@ fun String.getFileSizeStrength(max: Int = 100): Long {
 /**
  * Returns `true` if the file represented by this [String] exists in the file system, `false` otherwise.
  *
- * @receiver the file path of [String]
+ * @receiver the file path of [String] that accepts by [FilePathReceiver]
  * @return `true` if the file exists, `false` otherwise
  *
  * @see File.exists
  */
+@FilePathReceiver
 fun String.isFileExist(): Boolean {
     return File(this).exists()
 }
@@ -153,11 +165,12 @@ fun String.isFileExist(): Boolean {
 /**
  * Returns `true` if the file represented by this [String] is a regular file, `false` otherwise.
  *
- * @receiver the file path of [String]
+ * @receiver the file path of [String] that accepts by [FilePathReceiver]
  * @return `true` if the file is a regular file, `false` otherwise
  *
  * @see File.isFile
  */
+@FilePathReceiver
 fun String.isFile(): Boolean {
     return File(this).isFile
 }
@@ -165,11 +178,12 @@ fun String.isFile(): Boolean {
 /**
  * Returns `true` if the file represented by this [String] is empty, `false` otherwise.
  *
- * @receiver the file path of [String]
+ * @receiver the file path of [String] that accepts by [FilePathReceiver]
  * @return `true` if the file is empty, `false` otherwise
  *
  * @see getFileContent
  */
+@FilePathReceiver
 fun String.isFileEmpty(): Boolean {
     return this.getFileContent().isEmpty()
 }
@@ -177,11 +191,12 @@ fun String.isFileEmpty(): Boolean {
 /**
  * Returns `true` if the file represented by this [String] is a directory, `false` otherwise.
  *
- * @receiver the file path of [String]
+ * @receiver the file path of [String] that accepts by [FilePathReceiver]
  * @return `true` if the file is a directory, `false` otherwise
  *
  * @see File.isDirectory
  */
+@FilePathReceiver
 fun String.isDirectory(): Boolean {
     return File(this).isDirectory
 }
@@ -189,11 +204,12 @@ fun String.isDirectory(): Boolean {
 /**
  * Returns `true` if the directory represented by this [String] is empty, `false` otherwise.
  *
- * @receiver the file path of [String]
+ * @receiver the file path of [String] that accepts by [FilePathReceiver]
  * @return `true` if the directory is empty, `false` otherwise
  *
  * @see File.listFiles
  */
+@FilePathReceiver
 fun String.isDirectoryEmpty(): Boolean {
     val content: Array<out File>? = File(this).listFiles()
     return content?.size == 0
@@ -202,11 +218,12 @@ fun String.isDirectoryEmpty(): Boolean {
 /**
  * Returns `true` if the file represented by this [String] is hidden, `false` otherwise.
  *
- * @receiver the file path of [String]
+ * @receiver the file path of [String] that accepts by [FilePathReceiver]
  * @return `true` if the file is hidden, `false` otherwise
  *
  * @see File.isHidden
  */
+@FilePathReceiver
 fun String.isFileHidden(): Boolean {
     return File(this).isHidden
 }
@@ -214,11 +231,12 @@ fun String.isFileHidden(): Boolean {
 /**
  * Returns `true` if the file represented by this [String] is readable, `false` otherwise.
  *
- * @receiver the file path of [String]
+ * @receiver the file path of [String] that accepts by [FilePathReceiver]
  * @return `true` if the file is readable, `false` otherwise
  *
  * @see File.canRead
  */
+@FilePathReceiver
 fun String.isFileReadable(): Boolean {
     return File(this).canRead()
 }
@@ -226,11 +244,12 @@ fun String.isFileReadable(): Boolean {
 /**
  * Returns `true` if the file represented by this [String] is writable, `false` otherwise.
  *
- * @receiver the file path of [String]
+ * @receiver the file path of [String] that accepts by [FilePathReceiver]
  * @return `true` if the file is writable, `false` otherwise
  *
  * @see File.canWrite
  */
+@FilePathReceiver
 fun String.isFileWritable(): Boolean {
     return File(this).canWrite()
 }
@@ -238,11 +257,12 @@ fun String.isFileWritable(): Boolean {
 /**
  * Returns `true` if the file represented by this [String] is executable, `false` otherwise.
  *
- * @receiver the file path of [String]
+ * @receiver the file path of [String] that accepts by [FilePathReceiver]
  * @return `true` if the file is executable, `false` otherwise
  *
  * @see File.canExecute
  */
+@FilePathReceiver
 fun String.isFileExecutable(): Boolean {
     return File(this).canExecute()
 }
