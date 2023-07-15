@@ -29,6 +29,27 @@ tasks.dokkaHtmlMultiModule {
     }
 }
 
+tasks.dokkaHtmlMultiModule {
+    doLast {
+        outputDirectory.get().asFile.walk()
+            .filter { it.isFile && it.extension == "html" }
+            .forEach { file ->
+                file.writeText(
+                    file.readText()
+                        .replace(
+                            """
+                <button id="theme-toggle-button">
+              """.trimIndent(),
+                            """
+                <div id="github-link"><a target="_blank" href="https://github.com/BlueWhaleYT/WhaleUtils"></a></div>
+                <button id="theme-toggle-button">
+              """.trimIndent(),
+                        )
+                )
+            }
+    }
+}
+
 ext {
     set("dokkaDir", "${rootDir}/dokka")
 

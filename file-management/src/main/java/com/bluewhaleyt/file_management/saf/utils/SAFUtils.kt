@@ -18,7 +18,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.documentfile.provider.DocumentFile
-import com.bluewhaleyt.file_management.basic.extension.fileUtils
 import com.bluewhaleyt.file_management.basic.utils.FileUtils
 import com.bluewhaleyt.file_management.saf.extension.getFileContent
 import java.io.File
@@ -56,7 +55,7 @@ class SAFUtils(
                 context.startActivity(intent)
             }
         } else {
-            fileUtils.requestWritePermission(context)
+            requestWritePermission(context)
         }
     }
 
