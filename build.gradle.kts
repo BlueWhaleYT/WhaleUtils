@@ -8,6 +8,7 @@ buildscript {
         classpath("org.jetbrains.dokka:dokka-base:1.8.20")
         classpath("org.jetbrains.dokka:dokka-gradle-plugin:1.8.20")
         classpath("org.jetbrains.dokka:kotlin-as-java-plugin:1.8.20")
+        classpath("org.jetbrains.dokka:android-documentation-plugin:1.8.20")
     }
 }
 
