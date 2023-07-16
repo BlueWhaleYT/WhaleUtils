@@ -3,12 +3,18 @@ package com.bluewhaleyt.whaleutils;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.documentfile.provider.DocumentFile;
 
+import com.bluewhaleyt.common.datasaving.SharedPrefsUtils;
 import com.bluewhaleyt.file_management.basic.extension.FileExtKt;
 import com.bluewhaleyt.file_management.basic.utils.FileUtils;
 import com.bluewhaleyt.file_management.saf.extension.SAFExtKt;
@@ -18,29 +24,35 @@ import kotlin.jvm.functions.Function1;
 
 public class SampleJavaActivity extends AppCompatActivity {
 
-    SAFUtils saf = new SAFUtils(this);
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample_java);
 
-        TextView tvUri = findViewById(R.id.tv_uri);
-        TextView tvPath = findViewById(R.id.tv_path);
-
-        if (saf.isGrantedExternalStorageAccess()) {
-            saf.registerActivityResultLauncher(this, uri -> {
-                tvUri.setText(uri.toString());
-                tvPath.setText(SAFExtKt.getMIMEType(uri, this));
-                return null;
-            }).launch(saf.getIntentOpenDocument());
-
-        } else saf.requestAllFileAccess(true);
+        sharedPrefsSample();
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        safUtils.setPermanentAccess(data);
-//    }
+    private void sharedPrefsSample() {
+        EditText et = findViewById(R.id.et);
+        Button btnWrite = findViewById(R.id.btn_write);
+        Button btnGet = findViewById(R.id.btn_get);
+
+        String key = "key_name";
+
+        SharedPrefsUtils sp = new SharedPrefsUtils(this, "pref_test");
+
+        btnWrite.setOnClickListener(v -> {
+            String value = et.getText().toString();
+            sp.write(key, value);
+        });
+
+        btnGet.setOnClickListener(v -> {
+            String getValue = sp.get(key, "");
+            Toast.makeText(this, getValue, Toast.LENGTH_SHORT).show();
+        });
+
+        Log.d("pref", sp.listPreferences().toString());
+
+    }
+
 }
