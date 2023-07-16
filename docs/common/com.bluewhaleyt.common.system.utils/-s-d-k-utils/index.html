@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>SDKUtils</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script>
+<link href="../../../styles/custom.css" rel="Stylesheet"></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>WhaleUtils</span>            </a>    </div>
+    <div>
+    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":common:dokkaHtmlPartial/release">androidJvm</button>
+        </div>
+        <div id="github-link"><a target="_blank" href="https://github.com/BlueWhaleYT/WhaleUtils"></a></div>
+<button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="common::com.bluewhaleyt.common.system.utils/SDKUtils///PointingToDeclaration//-719036216">
+  <div class="breadcrumbs"><a href="../../index.html">common</a><span class="delimiter">/</span><a href="../index.html">com.bluewhaleyt.common.system.utils</a><span class="delimiter">/</span><span class="current">SDKUtils</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>SDKUtils</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">object </span><a href="index.html">SDKUtils</a></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1706956899%2FProperties%2F-719036216" anchor-label="isAtLeastSDK21" id="1706956899%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-at-least-s-d-k21.html"><span>is</span><wbr><span>At</span><wbr><span>Least</span><wbr><span><span>SDK21</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1706956899%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@get:</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ChecksSdkIntAtLeast.html"><span class="token annotation builtin">ChecksSdkIntAtLeast</span></a><span class="token punctuation">(</span><span>api<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">21</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword"></span><span class="token keyword">val </span><a href="is-at-least-s-d-k21.html">isAtLeastSDK21</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns whether the device's SDK version is at least 21 (Android Lollipop).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1737976706%2FProperties%2F-719036216" anchor-label="isAtLeastSDK22" id="1737976706%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-at-least-s-d-k22.html"><span>is</span><wbr><span>At</span><wbr><span>Least</span><wbr><span><span>SDK22</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1737976706%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@get:</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ChecksSdkIntAtLeast.html"><span class="token annotation builtin">ChecksSdkIntAtLeast</span></a><span class="token punctuation">(</span><span>api<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">22</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword"></span><span class="token keyword">val </span><a href="is-at-least-s-d-k22.html">isAtLeastSDK22</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns whether the device's SDK version is at least 22 (Android Lollipop MR1).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1768996513%2FProperties%2F-719036216" anchor-label="isAtLeastSDK23" id="1768996513%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-at-least-s-d-k23.html"><span>is</span><wbr><span>At</span><wbr><span>Least</span><wbr><span><span>SDK23</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1768996513%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@get:</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ChecksSdkIntAtLeast.html"><span class="token annotation builtin">ChecksSdkIntAtLeast</span></a><span class="token punctuation">(</span><span>api<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">23</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword"></span><span class="token keyword">val </span><a href="is-at-least-s-d-k23.html">isAtLeastSDK23</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns whether the device's SDK version is at least 23 (Android Marshmallow).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1800016320%2FProperties%2F-719036216" anchor-label="isAtLeastSDK24" id="1800016320%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-at-least-s-d-k24.html"><span>is</span><wbr><span>At</span><wbr><span>Least</span><wbr><span><span>SDK24</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1800016320%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@get:</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ChecksSdkIntAtLeast.html"><span class="token annotation builtin">ChecksSdkIntAtLeast</span></a><span class="token punctuation">(</span><span>api<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">24</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword"></span><span class="token keyword">val </span><a href="is-at-least-s-d-k24.html">isAtLeastSDK24</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns whether the device's SDK version is at least 24 (Android Nougat).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1831036127%2FProperties%2F-719036216" anchor-label="isAtLeastSDK25" id="1831036127%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-at-least-s-d-k25.html"><span>is</span><wbr><span>At</span><wbr><span>Least</span><wbr><span><span>SDK25</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1831036127%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@get:</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ChecksSdkIntAtLeast.html"><span class="token annotation builtin">ChecksSdkIntAtLeast</span></a><span class="token punctuation">(</span><span>api<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">25</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword"></span><span class="token keyword">val </span><a href="is-at-least-s-d-k25.html">isAtLeastSDK25</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns whether the device's SDK version is at least 25 (Android Nougat MR1).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1862055934%2FProperties%2F-719036216" anchor-label="isAtLeastSDK26" id="1862055934%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-at-least-s-d-k26.html"><span>is</span><wbr><span>At</span><wbr><span>Least</span><wbr><span><span>SDK26</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1862055934%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@get:</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ChecksSdkIntAtLeast.html"><span class="token annotation builtin">ChecksSdkIntAtLeast</span></a><span class="token punctuation">(</span><span>api<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">26</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword"></span><span class="token keyword">val </span><a href="is-at-least-s-d-k26.html">isAtLeastSDK26</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns whether the device's SDK version is at least 26 (Android Oreo).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1893075741%2FProperties%2F-719036216" anchor-label="isAtLeastSDK27" id="1893075741%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-at-least-s-d-k27.html"><span>is</span><wbr><span>At</span><wbr><span>Least</span><wbr><span><span>SDK27</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1893075741%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@get:</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ChecksSdkIntAtLeast.html"><span class="token annotation builtin">ChecksSdkIntAtLeast</span></a><span class="token punctuation">(</span><span>api<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">27</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword"></span><span class="token keyword">val </span><a href="is-at-least-s-d-k27.html">isAtLeastSDK27</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns whether the device's SDK version is at least 27 (Android Oreo MR1).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1924095548%2FProperties%2F-719036216" anchor-label="isAtLeastSDK28" id="1924095548%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-at-least-s-d-k28.html"><span>is</span><wbr><span>At</span><wbr><span>Least</span><wbr><span><span>SDK28</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1924095548%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@get:</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ChecksSdkIntAtLeast.html"><span class="token annotation builtin">ChecksSdkIntAtLeast</span></a><span class="token punctuation">(</span><span>api<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">28</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword"></span><span class="token keyword">val </span><a href="is-at-least-s-d-k28.html">isAtLeastSDK28</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns whether the device's SDK version is at least 28 (Android Pie).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1955115355%2FProperties%2F-719036216" anchor-label="isAtLeastSDK29" id="1955115355%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-at-least-s-d-k29.html"><span>is</span><wbr><span>At</span><wbr><span>Least</span><wbr><span><span>SDK29</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1955115355%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@get:</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ChecksSdkIntAtLeast.html"><span class="token annotation builtin">ChecksSdkIntAtLeast</span></a><span class="token punctuation">(</span><span>api<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">29</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword"></span><span class="token keyword">val </span><a href="is-at-least-s-d-k29.html">isAtLeastSDK29</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns whether the device's SDK version is at least 29 (Android 10).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1657416187%2FProperties%2F-719036216" anchor-label="isAtLeastSDK30" id="-1657416187%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-at-least-s-d-k30.html"><span>is</span><wbr><span>At</span><wbr><span>Least</span><wbr><span><span>SDK30</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1657416187%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@get:</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ChecksSdkIntAtLeast.html"><span class="token annotation builtin">ChecksSdkIntAtLeast</span></a><span class="token punctuation">(</span><span>api<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">30</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword"></span><span class="token keyword">val </span><a href="is-at-least-s-d-k30.html">isAtLeastSDK30</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns whether the device's SDK version is at least 30 (Android 11).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1626396380%2FProperties%2F-719036216" anchor-label="isAtLeastSDK31" id="-1626396380%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-at-least-s-d-k31.html"><span>is</span><wbr><span>At</span><wbr><span>Least</span><wbr><span><span>SDK31</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1626396380%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@get:</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ChecksSdkIntAtLeast.html"><span class="token annotation builtin">ChecksSdkIntAtLeast</span></a><span class="token punctuation">(</span><span>api<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">31</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword"></span><span class="token keyword">val </span><a href="is-at-least-s-d-k31.html">isAtLeastSDK31</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns whether the device's SDK version is at least 31 (Android 12).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1595376573%2FProperties%2F-719036216" anchor-label="isAtLeastSDK32" id="-1595376573%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-at-least-s-d-k32.html"><span>is</span><wbr><span>At</span><wbr><span>Least</span><wbr><span><span>SDK32</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1595376573%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@get:</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ChecksSdkIntAtLeast.html"><span class="token annotation builtin">ChecksSdkIntAtLeast</span></a><span class="token punctuation">(</span><span>api<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">32</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword"></span><span class="token keyword">val </span><a href="is-at-least-s-d-k32.html">isAtLeastSDK32</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns whether the device's SDK version is at least 32 (Android 12.1 / Android 12L).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1564356766%2FProperties%2F-719036216" anchor-label="isAtLeastSDK33" id="-1564356766%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-at-least-s-d-k33.html"><span>is</span><wbr><span>At</span><wbr><span>Least</span><wbr><span><span>SDK33</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1564356766%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@get:</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ChecksSdkIntAtLeast.html"><span class="token annotation builtin">ChecksSdkIntAtLeast</span></a><span class="token punctuation">(</span><span>api<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">33</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword"></span><span class="token keyword">val </span><a href="is-at-least-s-d-k33.html">isAtLeastSDK33</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns whether the device's SDK version is at least 33 (Android 13).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1533336959%2FProperties%2F-719036216" anchor-label="isAtLeastSDK34" id="-1533336959%2FProperties%2F-719036216" data-filterable-set=":common:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":common:dokkaHtmlPartial/release" data-filterable-set=":common:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-at-least-s-d-k34.html"><span>is</span><wbr><span>At</span><wbr><span>Least</span><wbr><span><span>SDK34</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1533336959%2FProperties%2F-719036216"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":common:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@get:</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ChecksSdkIntAtLeast.html"><span class="token annotation builtin">ChecksSdkIntAtLeast</span></a><span class="token punctuation">(</span><span>api<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">34</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword"></span><span class="token keyword">val </span><a href="is-at-least-s-d-k34.html">isAtLeastSDK34</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns whether the device's SDK version is at least 34 (Android 14).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
+

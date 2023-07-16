@@ -3,6 +3,8 @@ package com.bluewhaleyt.file_management.basic.extension
 import android.content.Context
 import android.net.Uri
 import android.provider.DocumentsContract
+import com.bluewhaleyt.common.unit.extension.formatDecimal
+import com.bluewhaleyt.file_management.basic.FileSize
 import com.bluewhaleyt.file_management.basic.utils.FileUtils
 import java.io.File
 
@@ -267,4 +269,26 @@ fun String.isFileWritable(): Boolean {
 @FilePathReceiver
 fun String.isFileExecutable(): Boolean {
     return File(this).canExecute()
+}
+
+/**
+ * Returns a string representation of the given file size in human-readable format i.e. "68 MB".
+ *
+ * @receiver the number of bytes to be converted into a human-readable format
+ * @return a string representing the given file size in human-readable format
+ *
+ * @see formatDecimal
+ * @see FileSize
+ */
+fun Number.formatFileSize(): String {
+    val size = this.toDouble()
+    return when {
+        size < FileSize.KB -> formatDecimal() + " B"
+        size < FileSize.MB -> (size / FileSize.KB).formatDecimal() + " KB"
+        size < FileSize.GB -> (size / FileSize.MB).formatDecimal() + " MB"
+        size < FileSize.TB -> (size / FileSize.GB).formatDecimal() + " GB"
+        size < FileSize.PB -> (size / FileSize.TB).formatDecimal() + " TB"
+        size < FileSize.EB -> (size / FileSize.PB).formatDecimal() + " PB"
+        else -> (size / FileSize.EB).formatDecimal() + " EB"
+    }
 }

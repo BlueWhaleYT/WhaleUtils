@@ -1,4 +1,4 @@
-package com.bluewhaleyt.common.datasaving
+package com.bluewhaleyt.common.datasaving.utils
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -25,6 +25,7 @@ import kotlin.coroutines.CoroutineContext
  * This utility aims to use [android.preference.PreferenceDataStore] replacing [SharedPrefsUtils] from [android.content.SharedPreferences]
  *
  * <p class="note">
+ *     DataStore is a part of Jetpack Compose, but you can use it in non-compose projects.
  *     For Java, you can also use <code>DataStore</code> instead of <code>SharedPreferences</code>, which has better performance using Kotlin coroutine.
  * </p>
  *
@@ -37,8 +38,8 @@ class DataStoreUtils(context: Context, prefName: String) {
     private val exception = "This data type is not supported."
 
     /**
-     * This property returns a continuation object for a coroutine that returns Unit. The returned continuation object
-     * has an anonymous implementation of the Continuation interface, which has a null context and an empty
+     * This property returns a continuation object for a coroutine that returns `Unit`. The returned continuation object
+     * has an anonymous implementation of the `Continuation` interface, which has a null context and an empty
      * implementation of the `resumeWith()` function.
      *
      * <p class="note">
@@ -102,7 +103,7 @@ class DataStoreUtils(context: Context, prefName: String) {
      * @see longPreferencesKey
      * @see floatPreferencesKey
      */
-    private fun <T: Any> getPreferencesKey(key: String, defaultValue: T): Preferences.Key<out Any> {
+    private fun <T: Any> preferencesKey(key: String, defaultValue: T): Preferences.Key<out Any> {
         return when (defaultValue) {
             is String -> stringPreferencesKey(key)
             is Int -> intPreferencesKey(key)
@@ -121,12 +122,12 @@ class DataStoreUtils(context: Context, prefName: String) {
      *
      * @return the value associated with the key, or the default value if the key is not present in the preferences.
      *
-     * @see getPreferencesKey
+     * @see preferencesKey
      * @see Flow.first
      * @see withContext
      */
-    suspend fun <T: Any> getWithCoroutine(key: String, defaultValue: T): Any {
-        val preferencesKey = getPreferencesKey(key, defaultValue)
+    suspend fun <T: Any> get(key: String, defaultValue: T): Any {
+        val preferencesKey = preferencesKey(key, defaultValue)
         return try {
             withContext(Dispatchers.IO) {
                 dataStore.data.first()[preferencesKey] ?: defaultValue
@@ -146,12 +147,12 @@ class DataStoreUtils(context: Context, prefName: String) {
      *
      * @return a flow of the value associated with the key, or the default value if the key is not present in the preferences.
      *
-     * @see getPreferencesKey
+     * @see preferencesKey
      * @see Flow.catch
      * @see Flow.map
      */
     fun <T: Any> getWithFlow(key: String, defaultValue: T): Flow<Any> {
-        val preferencesKey = getPreferencesKey(key, defaultValue)
+        val preferencesKey = preferencesKey(key, defaultValue)
         return dataStore.data
             .catch { exception ->
                 if (exception is IOException) emit(emptyPreferences())

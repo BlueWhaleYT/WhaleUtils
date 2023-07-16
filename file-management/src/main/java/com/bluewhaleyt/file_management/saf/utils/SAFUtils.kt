@@ -14,6 +14,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.documentfile.provider.DocumentFile
+import com.bluewhaleyt.common.system.utils.SDKUtils
 import com.bluewhaleyt.file_management.basic.utils.FileUtils
 import com.bluewhaleyt.file_management.saf.extension.getFileContent
 import java.io.File
@@ -65,9 +66,10 @@ class SAFUtils(
      *
      * @see Uri.fromParts
      * @see FileUtils.requestWritePermission
+     * @see SDKUtils.isAtLeastSDK30
      */
     fun requestAllFileAccess(withNavigate: Boolean = true) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        if (SDKUtils.isAtLeastSDK30) {
             if (!isGrantedExternalStorageAccess()) {
                 val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
                 if (withNavigate) {

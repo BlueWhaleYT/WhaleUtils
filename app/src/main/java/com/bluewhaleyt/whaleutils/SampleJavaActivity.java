@@ -8,8 +8,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bluewhaleyt.common.datasaving.DataStoreUtils;
-import com.bluewhaleyt.common.datasaving.SharedPrefsUtils;
+import com.bluewhaleyt.common.datasaving.utils.DataStoreUtils;
+import com.bluewhaleyt.common.datasaving.utils.SharedPrefsUtils;
 
 public class SampleJavaActivity extends AppCompatActivity {
 

@@ -3,13 +3,16 @@ $dokka.linkExtension:html
 
 module:common
 com.bluewhaleyt.common.color.extension
-com.bluewhaleyt.common.datasaving
+com.bluewhaleyt.common.datasaving.utils
 com.bluewhaleyt.common.network.utils
+com.bluewhaleyt.common.system.utils
+com.bluewhaleyt.common.unit.extension
 module:compose-common
 com.bluewhaleyt.compose_common.color.extension
 com.bluewhaleyt.compose_common.color.utils
 com.bluewhaleyt.compose_common.image.extension
 module:file-management
+com.bluewhaleyt.file_management.basic
 com.bluewhaleyt.file_management.basic.extension
 com.bluewhaleyt.file_management.basic.utils
 com.bluewhaleyt.file_management.saf.extension

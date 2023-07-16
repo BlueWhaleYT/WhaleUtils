@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Environment
 import androidx.core.app.ActivityCompat
+import com.bluewhaleyt.common.system.utils.SDKUtils
 import com.bluewhaleyt.file_management.basic.extension.getFileContent
 import com.bluewhaleyt.file_management.basic.extension.isFileExist
 import com.bluewhaleyt.file_management.saf.utils.SAFUtils
@@ -30,7 +31,7 @@ open class FileUtils {
     val androidObbDirPath: String = "${externalStorageDirPath}/Android/obb"
 
     fun isGrantedExternalStorageAccess(): Boolean {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        return if (SDKUtils.isAtLeastSDK30) {
             Environment.isExternalStorageManager()
         } else false
     }

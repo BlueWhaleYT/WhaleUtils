@@ -1,4 +1,4 @@
-package com.bluewhaleyt.common.datasaving
+package com.bluewhaleyt.common.datasaving.utils
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -19,7 +19,7 @@ import android.content.SharedPreferences
     replaceWith = ReplaceWith(
         expression = "",
         imports = [
-            "com.bluewhaleyt.common.datasaving.DataStoreUtils"
+            "com.bluewhaleyt.common.datasaving.utils.DataStoreUtils"
         ]
     )
 )

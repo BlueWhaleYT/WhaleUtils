@@ -1,18 +1,17 @@
 package com.bluewhaleyt.common.color.extension
 
-import androidx.annotation.ColorInt
 import androidx.core.graphics.ColorUtils
 
-fun Long.toHexColor(): String {
+fun Number.toHexColor(): String {
     return String().format("#%08X", this.toInt())
 }
 
-fun Long.toHexColorWithQuotes(): String {
+fun Number.toHexColorWithQuotes(): String {
     return "\"${this.toHexColor()}\""
 }
 
-fun @receiver:ColorInt Int.hasLuminanceAbove(threshold: Float = 0.5f): Boolean {
-    return ColorUtils.calculateLuminance(this) > threshold
+fun Number.hasLuminanceAbove(threshold: Float = 0.5f): Boolean {
+    return ColorUtils.calculateLuminance(this.toInt()) > threshold
 }
 
 internal fun String.parseColor(pattern: Regex, convert: (String, String) -> String): String {

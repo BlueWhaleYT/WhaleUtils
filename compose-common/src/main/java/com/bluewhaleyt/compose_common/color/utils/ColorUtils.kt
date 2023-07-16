@@ -5,13 +5,14 @@ import androidx.annotation.ChecksSdkIntAtLeast
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import com.bluewhaleyt.common.system.utils.SDKUtils
 
 class ColorUtils {
     companion object {
 
         @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.S)
         fun isDynamicColorAvailable(): Boolean {
-            return Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+            return SDKUtils.isAtLeastSDK31
         }
     }
 }
