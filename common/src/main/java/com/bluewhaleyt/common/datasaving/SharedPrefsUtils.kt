@@ -4,9 +4,18 @@ import android.content.Context
 import android.content.SharedPreferences
 
 @Suppress("UNCHECKED_CAST")
+@Deprecated(
+    message = "SharedPreferences is deprecated because of its performance. Please use DataStore instead.",
+    replaceWith = ReplaceWith(
+        expression = "",
+        imports = [
+            "com.bluewhaleyt.common.datasaving.DataStoreUtils"
+        ]
+    )
+)
 class SharedPrefsUtils(context: Context, prefName: String) {
     val prefs: SharedPreferences = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
-    val editor: SharedPreferences.Editor = prefs.edit()
+    val prefsEditor: SharedPreferences.Editor = prefs.edit()
 
     private val exception = "This data type is not supported."
 
@@ -30,15 +39,15 @@ class SharedPrefsUtils(context: Context, prefName: String) {
      */
     fun write(key: String, value: Any) {
         when (value) {
-            is Set<*> -> editor.putStringSet(key, value as Set<String>)
-            is String -> editor.putString(key, value)
-            is Int -> editor.putInt(key, value)
-            is Boolean -> editor.putBoolean(key, value)
-            is Float -> editor.putFloat(key, value)
-            is Long -> editor.putLong(key, value)
+            is Set<*> -> prefsEditor.putStringSet(key, value as Set<String>)
+            is String -> prefsEditor.putString(key, value)
+            is Int -> prefsEditor.putInt(key, value)
+            is Boolean -> prefsEditor.putBoolean(key, value)
+            is Float -> prefsEditor.putFloat(key, value)
+            is Long -> prefsEditor.putLong(key, value)
             else -> throw IllegalArgumentException(exception)
         }
-        editor.apply()
+        prefsEditor.apply()
     }
 
     /**
@@ -80,7 +89,7 @@ class SharedPrefsUtils(context: Context, prefName: String) {
      * @see SharedPreferences.Editor.remove
      */
     fun remove(key: String?) {
-        editor.remove(key).commit()
+        prefsEditor.remove(key).commit()
     }
 
     /**
@@ -89,7 +98,7 @@ class SharedPrefsUtils(context: Context, prefName: String) {
      * @see SharedPreferences.Editor.clear
      */
     fun clear() {
-        editor.clear()
+        prefsEditor.clear()
     }
 
     /**
