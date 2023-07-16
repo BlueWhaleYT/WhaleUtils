@@ -1,26 +1,15 @@
 package com.bluewhaleyt.whaleutils;
 
-import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.documentfile.provider.DocumentFile;
 
+import com.bluewhaleyt.common.datasaving.DataStoreUtils;
 import com.bluewhaleyt.common.datasaving.SharedPrefsUtils;
-import com.bluewhaleyt.file_management.basic.extension.FileExtKt;
-import com.bluewhaleyt.file_management.basic.utils.FileUtils;
-import com.bluewhaleyt.file_management.saf.extension.SAFExtKt;
-import com.bluewhaleyt.file_management.saf.utils.SAFUtils;
-
-import kotlin.jvm.functions.Function1;
 
 public class SampleJavaActivity extends AppCompatActivity {
 
@@ -33,13 +22,13 @@ public class SampleJavaActivity extends AppCompatActivity {
     }
 
     private void sharedPrefsSample() {
-        EditText et = findViewById(R.id.et);
-        Button btnWrite = findViewById(R.id.btn_write);
-        Button btnGet = findViewById(R.id.btn_get);
+        var et = (EditText) findViewById(R.id.et);
+        var btnWrite = findViewById(R.id.btn_write);
+        var btnGet = findViewById(R.id.btn_get);
 
-        String key = "key_name";
+        var key = "key_name";
 
-        SharedPrefsUtils sp = new SharedPrefsUtils(this, "pref_test");
+        var sp = new SharedPrefsUtils(this, "pref_test");
 
         btnWrite.setOnClickListener(v -> {
             String value = et.getText().toString();
@@ -53,6 +42,16 @@ public class SampleJavaActivity extends AppCompatActivity {
 
         Log.d("pref", sp.listPreferences().toString());
 
+    }
+
+    private void dataStoreSample() {
+        var key = "key_name";
+        var dataStore = new DataStoreUtils(this, "datastore_pref_test");
+        var continuation = dataStore.getContinuation();
+
+        dataStore.write(key, "123", dataStore.getContinuation());
+
+        var data = dataStore.getWithFlow(key, "");
     }
 
 }

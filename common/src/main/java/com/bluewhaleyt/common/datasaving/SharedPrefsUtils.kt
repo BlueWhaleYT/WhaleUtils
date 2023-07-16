@@ -3,6 +3,12 @@ package com.bluewhaleyt.common.datasaving
 import android.content.Context
 import android.content.SharedPreferences
 
+/**
+ * <p class="note danger">
+ *     For Kotlin, using <code>DataStore</code> instead is highly recommended, please refer
+ *     <a href="../-data-store-utils/index.html">DataStore</a>.
+ * </p>
+ */
 @Suppress("UNCHECKED_CAST")
 @Deprecated(
     message = "SharedPreferences is deprecated because of its performance. Please use DataStore instead.",
