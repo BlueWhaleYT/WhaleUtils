@@ -3,6 +3,7 @@ $dokka.linkExtension:html
 
 module:common
 com.bluewhaleyt.common.color.extension
+com.bluewhaleyt.common.common
 com.bluewhaleyt.common.datasaving.utils
 com.bluewhaleyt.common.network.utils
 com.bluewhaleyt.common.system.utils

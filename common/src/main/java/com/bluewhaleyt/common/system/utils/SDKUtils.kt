@@ -1,14 +1,16 @@
 package com.bluewhaleyt.common.system.utils
 
+import android.annotation.SuppressLint
 import android.os.Build
 
 import androidx.annotation.ChecksSdkIntAtLeast
 
 object SDKUtils {
+    @SuppressLint("AnnotateVersionCheck")
     private val sdkInt = Build.VERSION.SDK_INT
 
     /**
-     * Returns whether the device's SDK version is at least 21 (Android Lollipop).
+     * Returns whether the device's SDK version is at least `21` (Android Lollipop).
      *
      * @see Build.VERSION.SDK_INT
      * @see Build.VERSION_CODES.LOLLIPOP
@@ -18,7 +20,7 @@ object SDKUtils {
         get() = sdkInt >= Build.VERSION_CODES.LOLLIPOP
 
     /**
-     * Returns whether the device's SDK version is at least 22 (Android Lollipop MR1).
+     * Returns whether the device's SDK version is at least `22` (Android Lollipop MR1).
      *
      * @see Build.VERSION.SDK_INT
      * @see Build.VERSION_CODES.LOLLIPOP_MR1
@@ -28,7 +30,7 @@ object SDKUtils {
         get() = sdkInt >= Build.VERSION_CODES.LOLLIPOP_MR1
 
     /**
-     * Returns whether the device's SDK version is at least 23 (Android Marshmallow).
+     * Returns whether the device's SDK version is at least `23` (Android Marshmallow).
      * @see Build.VERSION.SDK_INT
      * @see Build.VERSION_CODES.M
      */
@@ -37,7 +39,7 @@ object SDKUtils {
         get() = sdkInt >= Build.VERSION_CODES.M
 
     /**
-     * Returns whether the device's SDK version is at least 24 (Android Nougat).
+     * Returns whether the device's SDK version is at least `24` (Android Nougat).
      *
      * @see Build.VERSION.SDK_INT
      * @see Build.VERSION_CODES.N
@@ -47,7 +49,7 @@ object SDKUtils {
         get() = sdkInt >= Build.VERSION_CODES.N
 
     /**
-     * Returns whether the device's SDK version is at least 25 (Android Nougat MR1).
+     * Returns whether the device's SDK version is at least `25` (Android Nougat MR1).
      *
      * @see Build.VERSION.SDK_INT
      * @see Build.VERSION_CODES.N_MR1
@@ -57,7 +59,7 @@ object SDKUtils {
         get() = sdkInt >= Build.VERSION_CODES.N_MR1
 
     /**
-     * Returns whether the device's SDK version is at least 26 (Android Oreo).
+     * Returns whether the device's SDK version is at least `26` (Android Oreo).
      *
      * @see Build.VERSION.SDK_INT
      * @see Build.VERSION_CODES.O
@@ -67,7 +69,7 @@ object SDKUtils {
         get() = sdkInt >= Build.VERSION_CODES.O
 
     /**
-     * Returns whether the device's SDK version is at least 27 (Android Oreo MR1).
+     * Returns whether the device's SDK version is at least `27` (Android Oreo MR1).
      *
      * @see Build.VERSION.SDK_INT
      * @see Build.VERSION_CODES.O_MR1
@@ -77,7 +79,7 @@ object SDKUtils {
         get() = sdkInt >= Build.VERSION_CODES.O_MR1
 
     /**
-     * Returns whether the device's SDK version is at least 28 (Android Pie).
+     * Returns whether the device's SDK version is at least `28` (Android Pie).
      *
      * @see Build.VERSION.SDK_INT
      * @see Build.VERSION_CODES.P
@@ -87,7 +89,7 @@ object SDKUtils {
         get() = sdkInt >= Build.VERSION_CODES.P
 
     /**
-     * Returns whether the device's SDK version is at least 29 (Android 10).
+     * Returns whether the device's SDK version is at least `29` (Android 10).
      *
      * @see Build.VERSION.SDK_INT
      * @see Build.VERSION_CODES.Q
@@ -97,7 +99,7 @@ object SDKUtils {
         get() = sdkInt >= Build.VERSION_CODES.Q
 
     /**
-     * Returns whether the device's SDK version is at least 30 (Android 11).
+     * Returns whether the device's SDK version is at least `30` (Android 11).
      *
      * @see Build.VERSION.SDK_INT
      * @see Build.VERSION_CODES.R
@@ -107,7 +109,7 @@ object SDKUtils {
         get() = sdkInt >= Build.VERSION_CODES.R
 
     /**
-     * Returns whether the device's SDK version is at least 31 (Android 12).
+     * Returns whether the device's SDK version is at least `31` (Android 12).
      *
      * @see Build.VERSION.SDK_INT
      * @see Build.VERSION_CODES.S
@@ -117,7 +119,7 @@ object SDKUtils {
         get() = sdkInt >= Build.VERSION_CODES.S
 
     /**
-     * Returns whether the device's SDK version is at least 32 (Android 12.1 / Android 12L).
+     * Returns whether the device's SDK version is at least `32` (Android 12.1 / Android 12L).
      *
      * @see Build.VERSION.SDK_INT
      * @see Build.VERSION_CODES.S_V2
@@ -127,7 +129,7 @@ object SDKUtils {
         get() = sdkInt >= Build.VERSION_CODES.S_V2
 
     /**
-     * Returns whether the device's SDK version is at least 33 (Android 13).
+     * Returns whether the device's SDK version is at least `33` (Android 13 - Tiramisu).
      *
      * @see Build.VERSION.SDK_INT
      * @see Build.VERSION_CODES.TIRAMISU
@@ -137,7 +139,7 @@ object SDKUtils {
         get() = sdkInt >= Build.VERSION_CODES.TIRAMISU
 
     /**
-     * Returns whether the device's SDK version is at least 34 (Android 14).
+     * Returns whether the device's SDK version is at least `34` (Android 14 - Upside Down Cake).
      *
      * @see Build.VERSION.SDK_INT
      * @see Build.VERSION_CODES.UPSIDE_DOWN_CAKE
