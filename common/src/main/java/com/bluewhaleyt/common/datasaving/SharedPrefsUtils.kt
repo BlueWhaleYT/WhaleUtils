@@ -4,10 +4,14 @@ import android.content.Context
 import android.content.SharedPreferences
 
 /**
+ * This utility aims to simplify the usage of [SharedPreferences].
+ *
  * <p class="note danger">
  *     For Kotlin, using <code>DataStore</code> instead is highly recommended, please refer
  *     <a href="../-data-store-utils/index.html">DataStore</a>.
  * </p>
+ *
+ * @see SharedPreferences
  */
 @Suppress("UNCHECKED_CAST")
 @Deprecated(

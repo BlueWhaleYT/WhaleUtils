@@ -2,6 +2,11 @@
 
 This module contains code that is shared among different parts of your application. It typically includes utility classes, constants, and helper functions that can be used across multiple modules.
 
+## Data Saving
+
+<details>
+<summary>Shared Preferences</summary>
+
 ## Shared Preferences
 
 <p class="note danger">
@@ -37,9 +42,9 @@ val pref = SharedPrefsUtils(context, key)
 SharedPrefsUtils pref = new SharedPrefsUtils(context, key)
 ```
 
-## Examples
+### Examples
 
-### Write data
+#### Write data
 
 ```kt
 // Kotlin
@@ -53,7 +58,7 @@ String value = "123";
 pref.write(key, value);
 ```
 
-### Get data
+#### Get data
 
 ```kt
 // Kotlin
@@ -64,3 +69,65 @@ val value = pref.get(key)
 // Java
 String value = pref.get(key, defaultValue);
 ```
+
+</details>
+
+<details>
+<summary>DataStore</summary>
+
+## DataStore
+
+### Get Started
+
+#### Declare a key name
+
+```kt
+// Kotlin
+val key = "key_name"
+```
+
+```java
+// Java
+String key = "key_name";
+```
+
+#### Declare instances
+
+```kt
+// Kotlin
+val dataStore = DataStoreUtils(context, key)
+```
+
+```java
+// Java
+DataStoreUtils dataStore = new DataStoreUtils(context, key)
+```
+
+#### Declare continuation
+
+<p class="note">
+    For Java required only when using <code>write()</code> function.
+</p>
+
+```java
+// Java
+Continuation<Unit> continuation = dataStore.getContinuation();
+```
+
+### Examples
+
+#### Write data
+
+```kt
+// Kotlin
+val value = "123"
+dataStore.write(key, value)
+```
+
+```java
+// Java
+String value = "123";
+dataStore.write(key, value, continuation);
+```
+
+</details>
