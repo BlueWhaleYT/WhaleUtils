@@ -43,6 +43,7 @@ android {
                 includes.from(
                     "$dokkaDir/modules/common/Common.md"
                 )
+//                samples.from("$projectDir/src/main/java/com/bluewhaleyt/common/samples/Samples.kt")
             }
             customStyleSheets = listOf(file("${dokkaDir}/css/custom.css"))
         }
