@@ -12,9 +12,7 @@ import android.net.wifi.WifiManager
 import android.net.wifi.WifiNetworkSpecifier
 import android.os.Build
 
-class NetworkUtils(
-    private val context: Context
-) {
+class NetworkUtils(context: Context) {
     private val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     private val network = connectivityManager.activeNetwork
     private val capabilities = connectivityManager.getNetworkCapabilities(network)
