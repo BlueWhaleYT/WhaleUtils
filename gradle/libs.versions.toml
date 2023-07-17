@@ -16,6 +16,7 @@ appcompat = "1.6.1"
 material = "1.9.0"
 material-icons-extended = "1.4.3"
 navigation-compose = "2.6.0"
+org-eclipse-jgit = "5.13.1.202206130422-r"
 
 [libraries]
 accompanist-navigation-animation = { module = "com.google.accompanist:accompanist-navigation-animation", version.ref = "accompanist-navigation-animation" }
@@ -31,6 +32,7 @@ espresso-core = { group = "androidx.test.espresso", name = "espresso-core", vers
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+org-eclipse-jgit = { module = "org.eclipse.jgit:org.eclipse.jgit", version.ref = "org-eclipse-jgit" }
 ui = { group = "androidx.compose.ui", name = "ui" }
 ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }

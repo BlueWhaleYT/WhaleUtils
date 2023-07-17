@@ -56,4 +56,5 @@ dependencies {
     implementation(project(":common"))
     implementation(project(":compose-common"))
     implementation(project(":file-management"))
+    implementation(project(":git"))
 }

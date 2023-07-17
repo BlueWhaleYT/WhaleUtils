@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/compose-common" />
             <option value="$PROJECT_DIR$/file-management" />
+            <option value="$PROJECT_DIR$/git" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -5,11 +5,20 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bluewhaleyt.common.datasaving.utils.DataStoreUtils;
 import com.bluewhaleyt.common.datasaving.utils.SharedPrefsUtils;
+import com.bluewhaleyt.git.GitListener;
+import com.bluewhaleyt.git.GitUtils;
+
+import org.eclipse.jgit.revwalk.RevCommit;
+
+import java.io.File;
+
+import kotlin.jvm.functions.Function1;
 
 public class SampleJavaActivity extends AppCompatActivity {
 
@@ -52,6 +61,26 @@ public class SampleJavaActivity extends AppCompatActivity {
         dataStore.write(key, "123", dataStore.getContinuation());
 
         var data = dataStore.getWithFlow(key, "");
+    }
+
+    private void gitSample() {
+        var git = new GitUtils("", "");
+        var listener = new GitListener() {
+            @Override
+            public void onProgress(@NonNull File file, double progress) {
+
+            }
+
+            @Override
+            public void onFailure(@NonNull String error) {
+
+            }
+
+            @Override
+            public void onSuccess() {
+
+            }
+        };
     }
 
 }

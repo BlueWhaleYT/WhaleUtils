@@ -18,3 +18,5 @@ com.bluewhaleyt.file_management.basic.extension
 com.bluewhaleyt.file_management.basic.utils
 com.bluewhaleyt.file_management.saf.extension
 com.bluewhaleyt.file_management.saf.utils
+module:git
+com.bluewhaleyt.git
