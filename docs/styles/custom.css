@@ -34,7 +34,6 @@
 
 *:not(a, span) {
     font-family: var(--font-family);
-
 }
 
 /* [ Sidebar Menu ] */
@@ -183,6 +182,10 @@ code {
     border-radius: var(--border-radius);
 }
 
+.token {
+    font-family: var(--default-monospace-font-family);
+}
+
 /* [ Heading ] */
 
 h1,
@@ -253,6 +256,63 @@ details>ul {
 
 .go-to-top-icon {
     background: var(--background-alt) !important;
+}
+
+/* [ Custom Tab ] */
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+.tabs label {
+    order: 1;
+    display: block;
+    padding: 11px 3px;
+    margin-right: 16px;
+    cursor: pointer;
+    font-size: var(--default-font-size);
+    box-shadow: var(--shadow);
+    color: var(--inactive-section-color);
+    border-bottom: 2px solid var(--inactive-tab-border-color);
+}
+
+.tabs label:hover {
+    color: var(--default-font-color);
+    border-color: var(--default-font-color);
+}
+
+.tabs .single-tab {
+    order: 99;
+    flex-grow: 1;
+    width: 100%;
+    display: none;
+    padding: 20px 0px;
+    padding-bottom: 0 !important;
+    background: var(--background-secondary);
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.theme-dark .tabs .single-tab {
+    background: var(--background-primary);
+}
+
+.tabs input[type="radio"] {
+    display: none;
+}
+
+.tabs input[type="radio"]:checked+label {
+    border-bottom-width: 3px;
+    color: var(--link-color);
+    border-bottom: 2px solid var(--active-tab-border-color);
+}
+
+.tabs input[type="radio"]:checked+label+.single-tab {
+    display: block;
 }
 
 /* [ Responsive ] */
