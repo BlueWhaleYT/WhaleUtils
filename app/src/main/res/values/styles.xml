@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="WhaleUtils.Button" parent="Widget.Material3.Button">
+        <item name="cornerRadius">8dp</item>
+        <item name="android:fontFamily">@font/quicksand_semibold</item>
+        <item name="android:minHeight">56dp</item>
+    </style>
+    <style name="WhaleUtils.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">?widgetBackgroundColor</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:textColor">?textColorSecondary</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:fontFamily">@font/quicksand_semibold</item>
+        <item name="android:minHeight">56dp</item>
+    </style>
+    <style name="WhaleUtils.OnlyIconButton" parent="Widget.Material3.Button">
+        <item name="android:minWidth">45dp</item>
+        <item name="android:minHeight">45dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">0dp</item>
+    </style>
+    <style name="WhaleUtils.OnlyIconButton.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:layout_width">45dp</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">0dp</item>
+    </style>
+    <style name="WhaleUtils.TextField" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/text_field_bg</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColorHint">?textColorSecondary</item>
+    </style>
+    <style name="WhaleUtils.TextButton" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?attr/primaryColor</item>
+        <item name="android:padding">20dp</item>
+    </style>
+    <style name="WhaleUtils.Card.Title" parent="Widget.AppCompat.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.TitleMedium</item>
+        <item name="android:textColor">?textColor</item>
+    </style>
+    <style name="WhaleUtils.Card.Subtitle" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">?textColorSecondary</item>
+    </style>
+    <style name="WhaleUtils.Divider" parent="">
+        <item name="android:background">?widgetBackgroundColor</item>
+    </style>
+    <style name="WhaleUtils.Snackbar" parent="Widget.Material3.Snackbar">
+        <item name="backgroundTint">?widgetBackgroundColor</item>
+        <item name="elevation">0dp</item>
+    </style>
+    <style name="WhaleUtils.Snackbar.TextView" parent="Widget.Material3.Snackbar.TextView">
+        <item name="android:textColor">?textColorSecondary</item>
+    </style>
+</resources>

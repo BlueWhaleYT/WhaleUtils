@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="?selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_text_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipIcon="@drawable/baseline_clear_24"
+            app:chipEndPadding="-8dp"
+            app:chipBackgroundColor="?widgetBackgroundColor"
+            app:chipStrokeColor="?widgetBackgroundColor"
+            android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
+            android:layout_marginStart="@dimen/spacer_10dp"
+            android:layout_marginEnd="@dimen/spacer_10dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_text_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="text 1"
+                android:gravity="center_vertical"
+                android:textAppearance="@style/TextAppearance.Material3.TitleSmall" />
+
+            <TextView
+                android:id="@+id/tv_text_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="text 3"
+                android:textColor="?textColorSecondary"
+                android:gravity="center_vertical"
+                android:textAppearance="@style/TextAppearance.Material3.TitleSmall" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_text_2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="text 2"
+            android:textColor="?textColorSecondary"
+            android:gravity="center_vertical"
+            android:layout_marginStart="@dimen/spacer_15dp"
+            android:textAppearance="@style/TextAppearance.Material3.TitleSmall" />
+
+    </LinearLayout>
+
+    <com.bluewhaleyt.whaleutils.activity.widget.Divider
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+</LinearLayout>

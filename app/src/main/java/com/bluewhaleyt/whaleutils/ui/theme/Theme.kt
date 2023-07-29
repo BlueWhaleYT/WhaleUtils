@@ -1,7 +1,6 @@
 package com.bluewhaleyt.whaleutils.ui.theme
 
 import android.app.Activity
-import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -14,6 +13,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.bluewhaleyt.common.system.SDKUtils
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -45,7 +45,7 @@ fun WhaleUtilsTheme(
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
-        dynamicColor &&  -> {
+        dynamicColor && SDKUtils.isAtLeastSDK31  -> {
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }

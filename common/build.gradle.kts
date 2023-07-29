@@ -68,4 +68,5 @@ dependencies {
     api(libs.appcompat)
     api(libs.material)
     api(libs.androidx.datastore.preferences)
+    api(libs.gson)
 }

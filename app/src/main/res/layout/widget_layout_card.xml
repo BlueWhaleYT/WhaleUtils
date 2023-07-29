@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/card_bg">
+
+    <LinearLayout
+        android:id="@+id/layout_card_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacer_20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <HorizontalScrollView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/spacer_15dp"
+                android:layout_gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_card_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="title"
+                        style="@style/WhaleUtils.Card.Title"/>
+
+                    <TextView
+                        android:id="@+id/tv_card_subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="subtitle"
+                        style="@style/WhaleUtils.Card.Subtitle"/>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:id="@+id/layout_card_additional_header"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="end|center_vertical"/>
+
+            <Button
+                android:id="@+id/btn_card_fold"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                style="@style/WhaleUtils.OnlyIconButton"
+                android:backgroundTint="?widgetBackgroundColor"
+                app:icon="@drawable/baseline_keyboard_arrow_up_24"
+                app:iconTint="?textColorSecondary"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/spacer_15dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.bluewhaleyt.whaleutils.activity.widget.Divider
+        android:id="@+id/card_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:id="@+id/layout_card_fold_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layout_card_additional_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacer_20dp"
+            android:orientation="vertical"/>
+
+        <LinearLayout
+            android:id="@+id/layout_card_additional_footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
+    </LinearLayout>
+
+</LinearLayout>

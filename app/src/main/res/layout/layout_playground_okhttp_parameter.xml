@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:animateLayoutChanges="true"
+    android:paddingStart="@dimen/spacer_20dp"
+    android:paddingEnd="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <com.bluewhaleyt.whaleutils.activity.widget.TextField
+                android:id="@+id/et_param_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/network_request_input_key"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <com.bluewhaleyt.whaleutils.activity.widget.TextField
+                android:id="@+id/et_param_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/network_request_input_value"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_remove_param"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            style="@style/WhaleUtils.OnlyIconButton.Outlined"
+            app:icon="@drawable/baseline_clear_24"
+            app:iconTint="?textColorSecondary"
+            app:strokeColor="?textColorSecondary"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?widgetBackgroundColor"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>

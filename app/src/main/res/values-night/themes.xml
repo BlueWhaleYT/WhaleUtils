@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.WhaleUtils" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.WhaleUtils.Classic" parent="Theme.Material3.DayNight">
+        <item name="android:fontFamily">@font/quicksand_medium</item>
+
+        <item name="primaryColor">@color/primaryColor</item>
+        <item name="errorColor">@color/errorColor</item>
+        <item name="colorPrimary">?primaryColor</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="android:windowBackground">@color/backgroundColor_dark</item>
+        <item name="backgroundColor">?android:windowBackground</item>
+        <item name="widgetBackgroundColor">@color/widgetBackgroundColor_dark</item>
+        <item name="cardBackgroundColor">@color/cardBackgroundColor_dark</item>
+
+        <item name="textColor">@color/white</item>
+        <item name="textColorSecondary">@color/textColorSecondary_dark</item>
+
+
+        <item name="materialButtonOutlinedStyle">@style/WhaleUtils.Button.Outlined</item>
+        <item name="snackbarStyle">@style/WhaleUtils.Snackbar</item>
+        <item name="snackbarTextViewStyle">@style/WhaleUtils.Snackbar.TextView</item>
+    </style>
+</resources>

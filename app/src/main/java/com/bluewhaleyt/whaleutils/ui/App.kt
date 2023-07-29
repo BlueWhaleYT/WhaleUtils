@@ -14,8 +14,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.bluewhaleyt.whaleutils.ui.screen.file.FileManagerScreen
-import com.bluewhaleyt.whaleutils.ui.screen.file.editor.EditorScreen
 
 @Composable
 fun App() {
@@ -47,11 +45,11 @@ fun Content(navController: NavHostController) {
         startDestination = Routes.FileManager.Main.route
     ) {
         composable(Routes.FileManager.Main.route) {
-            FileManagerScreen(navController)
+//            FileManagerScreen(navController)
         }
         composable("${Routes.FileManager.Editor.route}/{uri}") {
             val uri = it.arguments?.getString("uri")!!
-            EditorScreen(navController, uri)
+//            EditorScreen(navController, uri)
         }
     }
 }

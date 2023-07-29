@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/pb_loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/spacer_15dp">
+
+        <!-- [ Card 1: Url settings ] -->
+
+        <com.bluewhaleyt.whaleutils.activity.widget.Card
+            android:id="@+id/card_url_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardEmptyEnabled="true">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:scrollbars="none"
+                android:layout_marginBottom="@dimen/spacer_15dp">
+
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/btn_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true"
+                    app:selectionRequired="true">
+
+                    <Button
+                        android:id="@+id/btn_get"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="?materialButtonOutlinedStyle"
+                        android:text="GET"
+                        android:textSize="11sp"/>
+
+                    <Button
+                        android:id="@+id/btn_post"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="?materialButtonOutlinedStyle"
+                        android:text="POST"
+                        android:textSize="11sp"/>
+
+                    <Button
+                        android:id="@+id/btn_put"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="?materialButtonOutlinedStyle"
+                        android:text="PUT"
+                        android:textSize="11sp"/>
+
+                    <Button
+                        android:id="@+id/btn_patch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="?materialButtonOutlinedStyle"
+                        android:text="PATCH"
+                        android:textSize="11sp"/>
+
+                    <Button
+                        android:id="@+id/btn_delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="?materialButtonOutlinedStyle"
+                        android:text="DELETE"
+                        android:textSize="11sp"/>
+
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            </HorizontalScrollView>
+
+            <com.bluewhaleyt.whaleutils.activity.widget.TextField
+                android:id="@+id/et_api_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/network_request_input_api_url" />
+
+        </com.bluewhaleyt.whaleutils.activity.widget.Card>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- [ Card 2: Headers ] -->
+
+                <com.bluewhaleyt.whaleutils.activity.widget.Card
+                    android:id="@+id/card_headers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:cardTitle="@string/network_request_label_headers"
+                    app:cardContentPadding="0dp">
+
+                    <LinearLayout
+                        android:id="@+id/layout_header_item"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"/>
+
+                    <com.bluewhaleyt.whaleutils.activity.widget.TextButton
+                        android:id="@+id/btn_add_header"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/network_request_button_add_header"
+                        android:tag="@string/tag_card_footer"/>
+
+                </com.bluewhaleyt.whaleutils.activity.widget.Card>
+
+                <!-- [ Card 3: Parameters ] -->
+
+                <com.bluewhaleyt.whaleutils.activity.widget.Card
+                    android:id="@+id/card_parameters"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardTitle="@string/network_request_label_parameters"
+                    app:cardContentPadding="0dp">
+
+                    <LinearLayout
+                        android:id="@+id/layout_parameter_item"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"/>
+
+                    <com.bluewhaleyt.whaleutils.activity.widget.TextButton
+                        android:id="@+id/btn_add_param"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/network_request_button_add_parameter"
+                        android:tag="@string/tag_card_footer"/>
+
+                </com.bluewhaleyt.whaleutils.activity.widget.Card>
+
+                <!-- Button: Send Request -->
+
+                <Button
+                    android:id="@+id/btn_send_request"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="@string/network_request_button_send_request"
+                    app:cornerRadius="8dp"/>
+
+                <!-- [ Card 4: Response ] -->
+
+                <com.bluewhaleyt.whaleutils.activity.widget.Card
+                    android:id="@+id/card_response"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:cardTitle="@string/network_request_label_response">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:tag="@string/tag_card_header">
+
+                        <View
+                            android:id="@+id/status_dot"
+                            android:layout_width="5dp"
+                            android:layout_height="5dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/circle_bg"
+                            android:layout_marginEnd="5dp"/>
+
+                        <TextView
+                            android:id="@+id/tv_response_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"/>
+
+                    </LinearLayout>
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fillViewport="true">
+
+                        <com.paulvarry.jsonviewer.JsonViewer
+                            android:id="@+id/json_viewer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </HorizontalScrollView>
+
+                </com.bluewhaleyt.whaleutils.activity.widget.Card>
+
+                <!-- [ Card 5: Error ] -->
+
+                <com.bluewhaleyt.whaleutils.activity.widget.Card
+                    android:id="@+id/card_error"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:cardTitle="@string/network_request_label_error">
+
+                    <TextView
+                        android:id="@+id/tv_error"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="?errorColor"
+                        android:fontFamily="monospace"
+                        android:textIsSelectable="true"/>
+
+                </com.bluewhaleyt.whaleutils.activity.widget.Card>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

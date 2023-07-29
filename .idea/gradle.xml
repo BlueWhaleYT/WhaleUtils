@@ -10,10 +10,13 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/code-tools" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/compose-common" />
             <option value="$PROJECT_DIR$/file-management" />
             <option value="$PROJECT_DIR$/git" />
+            <option value="$PROJECT_DIR$/network" />
+            <option value="$PROJECT_DIR$/resources" />
           </set>
         </option>
       </GradleProjectSettings>

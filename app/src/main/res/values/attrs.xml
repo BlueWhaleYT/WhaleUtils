@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomLinearLayout">
+        <attr name="linearLayoutDefaultMarginEnabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="Card">
+        <attr name="cardTitle" format="string" />
+        <attr name="cardSubtitle" format="string" />
+        <attr name="cardContentPadding" format="dimension" />
+
+        <attr name="cardDividerEnabled" format="boolean" />
+        <attr name="cardEmptyEnabled" format="boolean" />
+        <attr name="cardFoldButtonEnabled" format="boolean" />
+        <attr name="cardExpand" format="boolean" />
+    </declare-styleable>
+
+    <attr name="primaryColor" format="color" />
+    <attr name="errorColor" format="color" />
+
+    <attr name="backgroundColor" format="color" />
+    <attr name="widgetBackgroundColor" format="color" />
+    <attr name="cardBackgroundColor" format="color" />
+
+    <attr name="textColor" format="color" />
+    <attr name="textColorSecondary" format="color" />
+</resources>

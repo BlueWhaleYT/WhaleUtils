@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="main_activity_label_sample_activities">活動樣本</string>
+
+    <string name="system_activity_label_title">系統及設備資訊</string>
+    <string name="system_label_system">系統</string>
+    <string name="system_label_device">設備</string>
+
+    <string name="network_request_activity_label_title">網絡請求</string>
+
+    <string name="network_request_label_headers">標頭</string>
+    <string name="network_request_label_parameters">參數</string>
+    <string name="network_request_label_query_parameters">查詢字串參數</string>
+    <string name="network_request_label_response">輸出</string>
+    <string name="network_request_label_error">錯誤</string>
+
+    <string name="network_request_button_add_header">新增標頭</string>
+    <string name="network_request_button_add_parameter">新增參數</string>
+    <string name="network_request_button_send_request">發送請求</string>
+
+    <string name="network_request_input_api_url">API 鏈結</string>
+    <string name="network_request_input_key">鍵</string>
+    <string name="network_request_input_value">值</string>
+
+    <string name="network_request_prompt_title_api_url">輸入 API 鏈結</string>
+    <string name="network_request_prompt_message_api_url">請輸入前綴為 \"https\" 協定的鏈結</string>
+    <string name="network_request_prompt_title_header">新增標頭</string>
+    <string name="network_request_prompt_message_header">如有，請輸入標頭的鍵及值</string>
+    <string name="network_request_prompt_title_parameter">新增參數</string>
+    <string name="network_request_prompt_message_parameter">如有，請輸入參數的鍵及值</string>
+    <string name="network_request_prompt_title_send_request">發送請求</string>
+    <string name="network_request_prompt_message_send_request">一旦完成設置，便可發送請求</string>
+
+    <string name="prompt_hint_skip">點擊「%s」或焦點可跳過提示</string>
+    <string name="prompt_hint_continue">點擊任意地方可繼續</string>
+</resources>

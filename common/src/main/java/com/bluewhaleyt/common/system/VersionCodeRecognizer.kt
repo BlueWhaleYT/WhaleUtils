@@ -3,7 +3,7 @@ package com.bluewhaleyt.common.system
 import android.os.Build
 
 internal object VersionCodeRecognizer {
-    fun getVersionCode(sdkVersion: Int): String {
+    fun getVersionCodeName(sdkVersion: Int): String {
         val s: String
         when (sdkVersion) {
             1 -> s = Build.VERSION_CODES::BASE.name // Android 1.0

@@ -1,0 +1,16 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="?selectableItemBackground">
+
+    <TextView
+        android:id="@+id/tv_text_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="text 1"
+        android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
+        android:padding="@dimen/spacer_20dp"/>
+
+</LinearLayout>
