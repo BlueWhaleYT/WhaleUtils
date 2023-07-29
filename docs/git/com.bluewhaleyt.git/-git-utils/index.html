@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>GitUtils</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script>
+<link href="../../../styles/custom.css" rel="Stylesheet"></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>WhaleUtils</span>            </a>    </div>
+    <div>
+    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":git:dokkaHtmlPartial/release">androidJvm</button>
+        </div>
+        <div id="github-link"><a target="_blank" href="https://github.com/BlueWhaleYT/WhaleUtils"></a></div>
+<button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="git::com.bluewhaleyt.git/GitUtils///PointingToDeclaration//-565189165">
+  <div class="breadcrumbs"><a href="../../index.html">git</a><span class="delimiter">/</span><a href="../index.html">com.bluewhaleyt.git</a><span class="delimiter">/</span><span class="current">GitUtils</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Git</span><wbr><span><span>Utils</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":git:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">GitUtils</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">localPath<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">remotePath<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-982736797%2FConstructors%2F-565189165" anchor-label="GitUtils" id="-982736797%2FConstructors%2F-565189165" data-filterable-set=":git:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":git:dokkaHtmlPartial/release" data-filterable-set=":git:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-git-utils.html"><span>Git</span><wbr><span><span>Utils</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-982736797%2FConstructors%2F-565189165"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":git:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">localPath<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">remotePath<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-734312851%2FProperties%2F-565189165" anchor-label="git" id="-734312851%2FProperties%2F-565189165" data-filterable-set=":git:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":git:dokkaHtmlPartial/release" data-filterable-set=":git:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="git.html"><span><span>git</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-734312851%2FProperties%2F-565189165"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":git:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="git.html">git</a><span class="token operator">: </span><span data-unresolved-link="org.eclipse.jgit.api/Git///PointingToDeclaration/">Git</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="654955145%2FProperties%2F-565189165" anchor-label="repo" id="654955145%2FProperties%2F-565189165" data-filterable-set=":git:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":git:dokkaHtmlPartial/release" data-filterable-set=":git:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="repo.html"><span><span>repo</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="654955145%2FProperties%2F-565189165"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":git:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="repo.html">repo</a><span class="token operator">: </span><span data-unresolved-link="org.eclipse.jgit.lib/Repository///PointingToDeclaration/">Repository</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1090189731%2FFunctions%2F-565189165" anchor-label="add" id="-1090189731%2FFunctions%2F-565189165" data-filterable-set=":git:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":git:dokkaHtmlPartial/release" data-filterable-set=":git:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add.html"><span><span>add</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1090189731%2FFunctions%2F-565189165"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":git:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="add.html"><span class="token function">add</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">filePattern<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span><span class="token string">"."</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1143599526%2FFunctions%2F-565189165" anchor-label="cloneRepository" id="-1143599526%2FFunctions%2F-565189165" data-filterable-set=":git:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":git:dokkaHtmlPartial/release" data-filterable-set=":git:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clone-repository.html"><span>clone</span><wbr><span><span>Repository</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1143599526%2FFunctions%2F-565189165"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":git:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="clone-repository.html"><span class="token function">cloneRepository</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">writer<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/io/Writer.html">Writer</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="845680288%2FFunctions%2F-565189165" anchor-label="commit" id="845680288%2FFunctions%2F-565189165" data-filterable-set=":git:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":git:dokkaHtmlPartial/release" data-filterable-set=":git:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="commit.html"><span><span>commit</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="845680288%2FFunctions%2F-565189165"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":git:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="commit.html"><span class="token function">commit</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1265355331%2FFunctions%2F-565189165" anchor-label="getChangedFiles" id="1265355331%2FFunctions%2F-565189165" data-filterable-set=":git:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":git:dokkaHtmlPartial/release" data-filterable-set=":git:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-changed-files.html"><span>get</span><wbr><span>Changed</span><wbr><span><span>Files</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1265355331%2FFunctions%2F-565189165"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":git:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-changed-files.html"><span class="token function">getChangedFiles</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">commit<span class="token operator">: </span><span data-unresolved-link="org.eclipse.jgit.revwalk/RevCommit///PointingToDeclaration/">RevCommit</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1635873597%2FFunctions%2F-565189165" anchor-label="getChangesOfCommit" id="1635873597%2FFunctions%2F-565189165" data-filterable-set=":git:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":git:dokkaHtmlPartial/release" data-filterable-set=":git:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-changes-of-commit.html"><span>get</span><wbr><span>Changes</span><wbr><span>Of</span><wbr><span><span>Commit</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1635873597%2FFunctions%2F-565189165"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":git:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-changes-of-commit.html"><span class="token function">getChangesOfCommit</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">commit<span class="token operator">: </span><span data-unresolved-link="org.eclipse.jgit.revwalk/RevCommit///PointingToDeclaration/">RevCommit</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="org.eclipse.jgit.diff/DiffEntry///PointingToDeclaration/">DiffEntry</span><span class="token operator">&gt;</span><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-310068957%2FFunctions%2F-565189165" anchor-label="getChangesTypeOfCommit" id="-310068957%2FFunctions%2F-565189165" data-filterable-set=":git:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":git:dokkaHtmlPartial/release" data-filterable-set=":git:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-changes-type-of-commit.html"><span>get</span><wbr><span>Changes</span><wbr><span>Type</span><wbr><span>Of</span><wbr><span><span>Commit</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-310068957%2FFunctions%2F-565189165"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":git:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-changes-type-of-commit.html"><span class="token function">getChangesTypeOfCommit</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">commit<span class="token operator">: </span><span data-unresolved-link="org.eclipse.jgit.revwalk/RevCommit///PointingToDeclaration/">RevCommit</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="org.eclipse.jgit.diff/DiffEntry.ChangeType///PointingToDeclaration/">DiffEntry.ChangeType</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1171601548%2FFunctions%2F-565189165" anchor-label="getCommitList" id="-1171601548%2FFunctions%2F-565189165" data-filterable-set=":git:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":git:dokkaHtmlPartial/release" data-filterable-set=":git:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-commit-list.html"><span>get</span><wbr><span>Commit</span><wbr><span><span>List</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1171601548%2FFunctions%2F-565189165"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":git:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-commit-list.html"><span class="token function">getCommitList</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="org.eclipse.jgit.revwalk/RevCommit///PointingToDeclaration/">RevCommit</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1156217285%2FFunctions%2F-565189165" anchor-label="getDiffContent" id="1156217285%2FFunctions%2F-565189165" data-filterable-set=":git:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":git:dokkaHtmlPartial/release" data-filterable-set=":git:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-diff-content.html"><span>get</span><wbr><span>Diff</span><wbr><span><span>Content</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1156217285%2FFunctions%2F-565189165"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":git:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-diff-content.html"><span class="token function">getDiffContent</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">commit<span class="token operator">: </span><span data-unresolved-link="org.eclipse.jgit.revwalk/RevCommit///PointingToDeclaration/">RevCommit</span><span class="token punctuation">, </span></span><span class="parameter ">filePath<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">withHeader<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-188587178%2FFunctions%2F-565189165" anchor-label="getFileContent" id="-188587178%2FFunctions%2F-565189165" data-filterable-set=":git:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":git:dokkaHtmlPartial/release" data-filterable-set=":git:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-file-content.html"><span>get</span><wbr><span>File</span><wbr><span><span>Content</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-188587178%2FFunctions%2F-565189165"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":git:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-file-content.html"><span class="token function">getFileContent</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">commit<span class="token operator">: </span><span data-unresolved-link="org.eclipse.jgit.revwalk/RevCommit///PointingToDeclaration/">RevCommit</span><span class="token punctuation">, </span></span><span class="parameter ">filePath<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1228792634%2FFunctions%2F-565189165" anchor-label="getFirstChangeTypeOfCommit" id="-1228792634%2FFunctions%2F-565189165" data-filterable-set=":git:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":git:dokkaHtmlPartial/release" data-filterable-set=":git:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-first-change-type-of-commit.html"><span>get</span><wbr><span>First</span><wbr><span>Change</span><wbr><span>Type</span><wbr><span>Of</span><wbr><span><span>Commit</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1228792634%2FFunctions%2F-565189165"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":git:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-first-change-type-of-commit.html"><span class="token function">getFirstChangeTypeOfCommit</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">commit<span class="token operator">: </span><span data-unresolved-link="org.eclipse.jgit.revwalk/RevCommit///PointingToDeclaration/">RevCommit</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="org.eclipse.jgit.diff/DiffEntry.ChangeType///PointingToDeclaration/">DiffEntry.ChangeType</span><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2107318967%2FFunctions%2F-565189165" anchor-label="pushRepository" id="2107318967%2FFunctions%2F-565189165" data-filterable-set=":git:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":git:dokkaHtmlPartial/release" data-filterable-set=":git:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="push-repository.html"><span>push</span><wbr><span><span>Repository</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2107318967%2FFunctions%2F-565189165"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":git:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="push-repository.html"><span class="token function">pushRepository</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
+

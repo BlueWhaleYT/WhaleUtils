@@ -1,0 +1,15 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+module:common
+com.bluewhaleyt.common.animation
+com.bluewhaleyt.common.common
+com.bluewhaleyt.common.json
+com.bluewhaleyt.common.storage
+com.bluewhaleyt.common.system
+com.bluewhaleyt.common.widget
+module:git
+com.bluewhaleyt.git
+module:network
+com.bluewhaleyt.network
+com.bluewhaleyt.network.okhttp
