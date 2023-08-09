@@ -2,7 +2,6 @@ package com.bluewhaleyt.whaleutils.activity
 
 import android.content.Intent
 import android.content.pm.ActivityInfo
-import android.graphics.Color
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
@@ -11,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bluewhaleyt.common.common.getAttributeColor
-import com.bluewhaleyt.common.common.setSpan
 import com.bluewhaleyt.whaleutils.R
 import com.bluewhaleyt.whaleutils.databinding.LayoutListCardItem1Binding
 
@@ -32,7 +30,7 @@ class ActivityAdapter(private val activities: List<ActivityInfo>) : RecyclerView
         val label = if (activity.loadLabel(packageManager) == context.resources.getString(R.string.app_name)) {
             "Unnamed"
         } else activity.loadLabel(packageManager)
-        val fullPackage = activity.name + "."
+        val fullPackage = activity.name.substringBeforeLast(".") + "."
         val onlyClassName = activity.name.substringAfterLast(".")
 
         val finalSpannable = concatSpannableStrings(

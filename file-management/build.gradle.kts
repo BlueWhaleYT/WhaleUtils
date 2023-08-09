@@ -65,6 +65,9 @@ afterEvaluate {
 
 dependencies {
     implementation(project(":common"))
+    implementation(project(":resources"))
+    implementation("com.github.BlueWhaleYT:MaterialFileIcon:1.0.1")
 
     api(libs.androidx.documentfile)
+    api("com.lazygeniouz:dfc:1.0.7")
 }

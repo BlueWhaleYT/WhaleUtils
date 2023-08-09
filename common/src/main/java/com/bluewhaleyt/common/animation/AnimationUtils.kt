@@ -1,8 +1,6 @@
 package com.bluewhaleyt.common.animation
 
 import android.content.Context
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -29,23 +27,24 @@ class AnimationUtils(
         view: View,
         animation: Animations,
         duration: Long = DURATION_SHORT,
+        startDelay: Long = 0,
         vararg params: Float,
         action: () -> Unit = {},
     ) {
         when (animation) {
-            Animations.LEFT_TO_RIGHT -> translate(view, duration, fromX = -1f) {action()}
-            Animations.RIGHT_TO_LEFT -> translate(view, duration, fromX = 1f) {action()}
-            Animations.TOP_TO_BOTTOM -> translate(view, duration, fromY = -1f) {action()}
-            Animations.BOTTOM_TO_TOP -> translate(view, duration, fromY = 1f) {action()}
+            Animations.LEFT_TO_RIGHT -> translate(view, duration, startDelay, fromX = -1f) {action()}
+            Animations.RIGHT_TO_LEFT -> translate(view, duration, startDelay, fromX = 1f) {action()}
+            Animations.TOP_TO_BOTTOM -> translate(view, duration, startDelay, fromY = -1f) {action()}
+            Animations.BOTTOM_TO_TOP -> translate(view, duration, startDelay, fromY = 1f) {action()}
             Animations.BOUNCE_IN -> {
                 val fromX = set(0, 0.3f, *params)
                 val fromY = set(1, 0.3f, *params)
-                scale(view, duration, fromX = fromX, fromY = fromY, interpolator = BounceInterpolator()) {action()}
+                scale(view, duration, startDelay, fromX = fromX, fromY = fromY, interpolator = BounceInterpolator()) {action()}
             }
             Animations.BOUNCE_OUT -> {
                 val toX = set(0, 0.3f, *params)
                 val toY = set(1, 0.3f, *params)
-                scale(view, duration, toX = toX, toY = toY, interpolator = BounceInterpolator()) {action()}
+                scale(view, duration, startDelay, toX = toX, toY = toY, interpolator = BounceInterpolator()) {action()}
             }
             else -> {}
         }
@@ -62,6 +61,7 @@ class AnimationUtils(
     fun translate(
         view: View,
         duration: Long,
+        startDelay: Long,
         fromX: Float = 0f,
         toX: Float = 0f,
         fromY: Float = 0f,
@@ -74,13 +74,14 @@ class AnimationUtils(
             Animation.RELATIVE_TO_SELF, fromY,
             Animation.RELATIVE_TO_SELF, toY
         )
-        setupAnimation(view, animation, duration, action)
+        setupAnimation(view, animation, duration, startDelay, action)
         view.startAnimation(animation)
     }
 
     fun scale(
         view: View,
         duration: Long,
+        startDelay: Long,
         fromX: Float = 1f,
         toX: Float = 1f,
         fromY: Float = 1f,
@@ -96,13 +97,15 @@ class AnimationUtils(
             Animation.RELATIVE_TO_SELF, pivotX,
             Animation.RELATIVE_TO_SELF, pivotY
         )
-        setupAnimation(view, animation, duration, action)
+        setupAnimation(view, animation, duration, startDelay, action)
         animation.interpolator = interpolator
         view.startAnimation(animation)
     }
 
-    private fun setupAnimation(view: View, animation: Animation, duration: Long, action: () -> Unit) {
+    private fun setupAnimation(view: View, animation: Animation, duration: Long, startDelay: Long, action: () -> Unit) {
         animation.duration = duration
+        animation.startOffset = startDelay
+
         view.startAnimation(animation)
         context.waitFor(duration) { action() }
     }

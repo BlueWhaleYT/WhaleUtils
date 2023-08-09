@@ -1,6 +1,8 @@
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinAndroid)
+    `maven-publish`
 }
 
 android {
@@ -26,6 +28,22 @@ android {
     compileOptions {
         sourceCompatibility = rootProject.ext["javaVersion"] as JavaVersion
         targetCompatibility = rootProject.ext["javaVersion"] as JavaVersion
+    }
+    kotlinOptions {
+        jvmTarget = rootProject.ext["jvmTarget"] as String
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "com.github.BlueWhaleYT.WhaleUtils"
+                artifactId = "resources"
+                version = "1.0.0"
+            }
+        }
     }
 }
 

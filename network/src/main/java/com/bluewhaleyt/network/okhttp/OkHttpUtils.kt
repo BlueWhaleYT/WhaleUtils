@@ -1,12 +1,9 @@
 package com.bluewhaleyt.network.okhttp
 
-import android.util.Log
-import com.bluewhaleyt.network.Requests
+import com.bluewhaleyt.network.Methods
 import okhttp3.Call
 import okhttp3.Callback
-import okhttp3.Headers
-import okhttp3.HttpUrl
-import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
+import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -14,7 +11,6 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
 import org.json.JSONObject
 import java.io.IOException
-import java.net.URLEncoder
 import java.util.concurrent.TimeUnit
 
 
@@ -29,6 +25,8 @@ class OkHttpUtils(
 
     private lateinit var newUrl: String
     private lateinit var newQueryParams: String
+
+    val mediaType: MediaType = "application/json; charset=utf-8".toMediaType()
 
     enum class Type {
         PARAMETERS, HEADERS
@@ -71,7 +69,7 @@ class OkHttpUtils(
      * @see Request
      */
     fun startRequest(
-        method: Requests,
+        method: Methods,
         formParameters: String? = null,
         queryParameters: String? = null,
         headers: String? = null,
@@ -92,7 +90,7 @@ class OkHttpUtils(
         }
 
         val requestBuilder = Request.Builder().url(newUrl)
-        val body = formParameters?.toRequestBody("application/json; charset=utf-8".toMediaType())!!
+        val body = formParameters?.toRequestBody(mediaType)!!
 
         headers?.let {
             val headersJson = JSONObject(it)
@@ -102,19 +100,19 @@ class OkHttpUtils(
         }
 
         val request: Request = when (method) {
-            Requests.DELETE -> {
+            Methods.DELETE -> {
                 requestBuilder.delete(body).build()
             }
-            Requests.GET -> {
+            Methods.GET -> {
                 requestBuilder.build()
             }
-            Requests.POST -> {
+            Methods.POST -> {
                 requestBuilder.post(body).build()
             }
-            Requests.PUT -> {
+            Methods.PUT -> {
                 requestBuilder.put(body).build()
             }
-            Requests.PATCH -> {
+            Methods.PATCH -> {
                 requestBuilder.patch(body).build()
             }
             else -> throw RuntimeException("Unsupported endpoint.")

@@ -65,11 +65,9 @@ dependencies {
     implementation(project(":git"))
     implementation(project(":network"))
     implementation(project(":resources"))
+    implementation(project(":design"))
     implementation(project(":code-tools"))
-
-    //    implementation("com.github.smuyyh:JsonViewer:1.0.7") {
-//        exclude(group = "com.android.support")
-//    }
+    implementation(project(":sora-editor"))
 
     implementation("uk.co.samuelwall:material-tap-target-prompt:3.3.2")
     implementation("com.github.pvarry:android-json-viewer:v1.1")
@@ -78,7 +76,7 @@ dependencies {
         exclude(group = "com.android.support")
     }
 
-    implementation("com.googlecode.java-diff-utils:diffutils:1.3.0")
+    implementation("com.github.BlueWhaleYT:MaterialFileIcon:1.0.1")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

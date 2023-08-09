@@ -44,7 +44,7 @@
                 android:text="text 3"
                 android:textColor="?textColorSecondary"
                 android:gravity="center_vertical"
-                android:textAppearance="@style/TextAppearance.Material3.TitleSmall" />
+                android:textAppearance="@style/TextAppearance.Material3.LabelSmall" />
 
         </LinearLayout>
 

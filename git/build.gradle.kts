@@ -50,6 +50,19 @@ android {
     }
 }
 
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "com.github.BlueWhaleYT.WhaleUtils"
+                artifactId = "git"
+                version = "1.0.0"
+            }
+        }
+    }
+}
+
 dependencies {
     api(libs.org.eclipse.jgit)
 }

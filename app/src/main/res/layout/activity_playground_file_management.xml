@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:animateLayoutChanges="true">
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/pb_loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:indeterminate="true"/>
+
+    <com.bluewhaleyt.whaleutils.activity.widget.Card
+        android:id="@+id/card_code_editor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardTitle="Code Editor"
+        app:cardFoldButtonEnabled="true"
+        app:cardContentPadding="0dp"
+        android:paddingStart="@dimen/spacer_15dp"
+        android:paddingEnd="@dimen/spacer_15dp"
+        android:paddingTop="@dimen/spacer_15dp">
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/pb_loading2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:indeterminate="true"/>
+
+        <View
+            android:id="@+id/view_editor_footer"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:tag="@string/tag_card_footer"/>
+
+        <com.bluewhaleyt.sora_editor.CodeEditor
+            android:id="@+id/et_editor"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:editorTextMateEnabled="true"/>
+
+    </com.bluewhaleyt.whaleutils.activity.widget.Card>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/spacer_15dp"
+        android:paddingEnd="@dimen/spacer_15dp"
+        android:paddingBottom="@dimen/spacer_15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.bluewhaleyt.whaleutils.activity.widget.Card
+                android:id="@+id/card_files"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardTitle="Files"
+                app:cardFoldButtonEnabled="true">
+
+                <com.bluewhaleyt.whaleutils.activity.widget.TextField
+                    android:id="@+id/et_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Search"
+                    android:layout_marginBottom="@dimen/spacer_15dp"/>
+
+                <com.bluewhaleyt.design.widget.recyclerview.RecyclerView
+                    android:id="@+id/rv_file"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginBottom="@dimen/spacer_15dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_goto_parent_dir"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Back"
+                        style="@style/WhaleUtils.Button.Outlined"
+                        android:layout_marginEnd="@dimen/spacer_15dp"/>
+
+                    <Button
+                        android:id="@+id/btn_open_document_tree"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        style="@style/WhaleUtils.Button"
+                        android:text="Open Document tree"/>
+
+                </LinearLayout>
+
+            </com.bluewhaleyt.whaleutils.activity.widget.Card>
+
+            <com.bluewhaleyt.whaleutils.activity.widget.Card
+                android:id="@+id/card_global_search_files"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardTitle="Global Search"
+                app:cardFoldButtonEnabled="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/spacer_15dp">
+
+                    <com.bluewhaleyt.whaleutils.activity.widget.TextField
+                        android:id="@+id/et_global_search"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Search"
+                        android:layout_marginEnd="@dimen/spacer_15dp"/>
+
+                    <Button
+                        android:id="@+id/btn_global_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/WhaleUtils.OnlyIconButton"
+                        app:icon="@drawable/baseline_search_24"
+                        android:text=""/>
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_global_file"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginBottom="@dimen/spacer_15dp" />
+
+            </com.bluewhaleyt.whaleutils.activity.widget.Card>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

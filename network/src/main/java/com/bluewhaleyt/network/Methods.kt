@@ -7,7 +7,7 @@ package com.bluewhaleyt.network
  *     Please see <a href="https://www.rfc-editor.org/rfc/rfc9110.html">RFC 9110 - HTTP Semantics</a> for the usages of HTTP request methods.
  * </p>
  */
-enum class Requests {
+enum class Methods {
     /**
      * Used with a proxy that can dynamically switch to being a tunnel.
      */

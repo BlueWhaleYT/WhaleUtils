@@ -1,7 +1,9 @@
+
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
+    `maven-publish`
 }
 
 android {
@@ -33,8 +35,25 @@ android {
     }
 }
 
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "com.github.BlueWhaleYT.WhaleUtils"
+                artifactId = "sora-editor"
+                version = "1.0.0"
+            }
+        }
+    }
+}
+
 dependencies {
-    api(platform("io.github.Rosemoe.sora-editor:bom:0.21.1"))
+    api(platform("io.github.Rosemoe.sora-editor:bom:0.22.0"))
     api("io.github.Rosemoe.sora-editor:editor")
+    api("io.github.Rosemoe.sora-editor:language-java")
     api("io.github.Rosemoe.sora-editor:language-textmate")
+
+    implementation(project(":common"))
+    implementation(project(":file-management"))
 }

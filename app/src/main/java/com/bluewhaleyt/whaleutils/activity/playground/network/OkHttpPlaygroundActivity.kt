@@ -12,7 +12,7 @@ import com.bluewhaleyt.common.common.getAttributeColor
 import com.bluewhaleyt.common.common.toStringResource
 import com.bluewhaleyt.common.json.JSONUtils
 import com.bluewhaleyt.common.widget.showSnackbar
-import com.bluewhaleyt.network.Requests
+import com.bluewhaleyt.network.Methods
 import com.bluewhaleyt.network.StatusCodeRecognizer
 import com.bluewhaleyt.network.okhttp.OkHttpListener
 import com.bluewhaleyt.network.okhttp.OkHttpUtils
@@ -39,7 +39,6 @@ class OkHttpPlaygroundActivity : PlaygroundActivity() {
         binding = ActivityPlaygroundOkhttpBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setBinding(binding)
-
         init()
     }
 
@@ -158,7 +157,7 @@ class OkHttpPlaygroundActivity : PlaygroundActivity() {
 
         try {
             okhttp.startRequest(
-                method = getMethod<Requests>() as Requests,
+                method = getMethod<Methods>() as Methods,
                 formParameters = getJSONFromOptions(okhttp, OkHttpUtils.Type.PARAMETERS),
                 queryParameters = getJSONFromOptions(okhttp, OkHttpUtils.Type.PARAMETERS),
                 headers  = getJSONFromOptions(okhttp, OkHttpUtils.Type.HEADERS),
@@ -197,13 +196,13 @@ class OkHttpPlaygroundActivity : PlaygroundActivity() {
             String::class -> {
                 btnChecked.text.toString()
             }
-            Requests::class -> {
+            Methods::class -> {
                 when(btnChecked.text) {
-                    "GET" -> Requests.GET
-                    "POST" -> Requests.POST
-                    "PUT" -> Requests.PUT
-                    "PATCH" -> Requests.PATCH
-                    "DELETE" -> Requests.DELETE
+                    "GET" -> Methods.GET
+                    "POST" -> Methods.POST
+                    "PUT" -> Methods.PUT
+                    "PATCH" -> Methods.PATCH
+                    "DELETE" -> Methods.DELETE
                     else -> throw IllegalArgumentException("Invalid method")
                 }
             }

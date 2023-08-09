@@ -1,7 +1,7 @@
 package com.bluewhaleyt.sora_editor.textmate
 
 import android.content.Context
-import com.bluewhaleyt.sora_editor.Languages
+import com.bluewhaleyt.common.common.isInDarkMode
 import io.github.rosemoe.sora.langs.textmate.TextMateColorScheme
 import io.github.rosemoe.sora.langs.textmate.TextMateLanguage
 import io.github.rosemoe.sora.langs.textmate.registry.FileProviderRegistry
@@ -13,33 +13,56 @@ import io.github.rosemoe.sora.widget.CodeEditor
 import io.github.rosemoe.sora.widget.schemes.EditorColorScheme
 import org.eclipse.tm4e.core.registry.IThemeSource
 
+private val themeDark = "dark/material-palenight.json"
+private val themeLight = "light/material-lighter.json"
 
 class TextMateUtils(
     private val context: Context,
     private val editor: CodeEditor,
-    private val theme: String,
-    private val themes: Array<String>,
-    private val themeDir: String,
-    private val langDir: String,
-    private val langBasePath: String
+    private val theme: String = if (context.isInDarkMode()) themeDark else themeLight,
+    private val themes: Array<String> = arrayOf(themeDark, themeLight),
+    private val themeDir: String = "textmate/themes/",
+    private val langDir: String = "textmate/languages/",
+    private val langBasePath: String = "languages.json",
 ) {
 
-    private lateinit var lang: String
+//    private val colorSchemeBuilder: TextMateColorSchemeBuilder? = null
+    private var lang: String = ""
 
-    fun applyLanguage(languages: Languages) {
-        lang = when (languages) {
-            Languages.DIFF -> "source.diff"
+    init {
+        applyLanguage()
+    }
+
+//    fun getColorSchemeBuilder(): TextMateColorSchemeBuilder? {
+//        return colorSchemeBuilder
+//    }
+
+    fun applyLanguage(language: String = "txt") {
+        lang = when (language) {
+            "css", "sass", "less", "scss" -> "source.css"
+            "kt", "kts" -> "source.kotlin"
+            "java" -> "source.java"
+            "js" -> "source.js"
+            "json" -> "source.json"
+            "php" -> "source.php"
+            "py" -> "source.python"
+
+            "log" -> "text.log"
+            "txt" -> "text.plain"
+            "xml" -> "text.xml"
+            "html", "htm" -> "text.html.basic"
+            "md", "mdx" -> "text.html.markdown"
+            else -> ""
         }
 
-        loadDefaultThemes();
-        loadDefaultLanguages();
+        loadDefaultThemes()
+        loadDefaultLanguages()
 
-        ensureTextmateTheme();
+        ensureTextmateTheme()
 
-        applyThemes();
-        if (lang != "") {
-            applyLanguages();
-        }
+        applyThemes()
+        if (lang != "") applyLanguages()
+        else editor.rerunAnalysis()
 
     }
 
@@ -65,7 +88,7 @@ class TextMateUtils(
         GrammarRegistry.getInstance().loadGrammars(langDir + langBasePath)
     }
 
-    @Throws(java.lang.Exception::class)
+    @Throws(Exception::class)
     private fun ensureTextmateTheme() {
         var editorColorScheme: EditorColorScheme? = editor.colorScheme
         if (editorColorScheme !is TextMateColorScheme) {
@@ -78,11 +101,11 @@ class TextMateUtils(
         ThemeRegistry.getInstance().setTheme(themeDir + theme)
     }
 
-    @Throws(java.lang.Exception::class)
     private fun applyLanguages() {
         ensureTextmateTheme()
         val language: TextMateLanguage
         val editorLanguage = editor.editorLanguage
+
         if (editorLanguage is TextMateLanguage) {
             language = editorLanguage
             language.updateLanguage(lang)

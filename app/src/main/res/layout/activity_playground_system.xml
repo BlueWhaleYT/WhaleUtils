@@ -23,7 +23,7 @@
                 app:cardTitle="@string/system_label_device"
                 app:cardContentPadding="0dp">
 
-                <androidx.recyclerview.widget.RecyclerView
+                <com.bluewhaleyt.design.widget.recyclerview.RecyclerView
                     android:id="@+id/rv_display"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
@@ -37,7 +37,7 @@
                 app:cardTitle="@string/system_label_system"
                 app:cardContentPadding="0dp">
 
-                <androidx.recyclerview.widget.RecyclerView
+                <com.bluewhaleyt.design.widget.recyclerview.RecyclerView
                     android:id="@+id/rv_system"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>

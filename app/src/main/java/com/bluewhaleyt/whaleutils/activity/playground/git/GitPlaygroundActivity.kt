@@ -6,17 +6,16 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bluewhaleyt.common.common.dp
+import com.bluewhaleyt.common.coroutines.runInBackground
+import com.bluewhaleyt.common.coroutines.runOnUI
+import com.bluewhaleyt.common.coroutines.withUI
 import com.bluewhaleyt.git.GitUtils
 import com.bluewhaleyt.whaleutils.R
 import com.bluewhaleyt.whaleutils.activity.playground.PlaygroundActivity
 import com.bluewhaleyt.whaleutils.databinding.ActivityPlaygroundGitBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.OutputStream
 import java.io.PrintWriter
@@ -31,7 +30,7 @@ class GitPlaygroundActivity : PlaygroundActivity() {
         setContentView(binding.root)
         setBinding(binding)
 
-        catchException {
+        catchExceptionWithSnackbar {
             init()
         }
     }
@@ -46,8 +45,6 @@ class GitPlaygroundActivity : PlaygroundActivity() {
     private fun init() {
         setupCardUrlSettings()
         setupCardCommits()
-
-        setupCardPushRepo()
 
         setupCardCloneRepo()
     }
@@ -84,20 +81,15 @@ class GitPlaygroundActivity : PlaygroundActivity() {
                 setAdapter(adapter)
                 layoutManager = LinearLayoutManager(context)
             }
-            catchException {
+            catchExceptionWithSnackbar {
                 val commits = git.getCommitList()
-                withContext(Dispatchers.Main) {
+                withUI {
                     adapter.updateCommits(commits)
                     binding.tvCommitCount.text = commits.size.toString()
                     binding.rvCommit.visibility = View.VISIBLE
                 }
             }
         }
-    }
-
-    private fun setupCardPushRepo() {
-        val git = getGit()
-        git.pushRepository()
     }
 
     private fun setupCardCloneRepo() {
@@ -116,24 +108,24 @@ class GitPlaygroundActivity : PlaygroundActivity() {
                 show()
             }
 
-            lifecycleScope.launch(Dispatchers.IO) {
+            runInBackground {
                 val git = GitUtils(localUrl, remoteUrl)
                 val writer = PrintWriter(
                     object : OutputStream() {
                         override fun write(p0: Int) {
-                            lifecycleScope.launch(Dispatchers.Main) {
+                            runOnUI {
                                 textView.append(p0.toChar().toString())
                             }
                         }
                         override fun write(b: ByteArray?) {
-                            lifecycleScope.launch(Dispatchers.Main) {
+                            runOnUI {
                                 textView.append("\n" + b?.toString(Charsets.UTF_8))
                             }
                         }
                     }
                 )
                 git.cloneRepository(writer)
-                lifecycleScope.launch(Dispatchers.Main) {
+                runOnUI {
                     sheet.dismiss()
                 }
             }

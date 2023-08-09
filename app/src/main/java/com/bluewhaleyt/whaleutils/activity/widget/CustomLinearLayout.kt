@@ -5,9 +5,11 @@ import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.widget.LinearLayout
 import com.bluewhaleyt.common.common.dp
 import com.bluewhaleyt.whaleutils.R
+
 
 open class CustomLinearLayout @JvmOverloads constructor(
     private val context: Context,
@@ -101,5 +103,20 @@ open class CustomLinearLayout @JvmOverloads constructor(
         val index = parent.indexOfChild(this)
         return if (index < parent.childCount - 1) parent.getChildAt(index + 1) else null
     }
+
+
+    class OnViewGlobalLayoutListener(private val view: View, height: Int) :
+        ViewTreeObserver.OnGlobalLayoutListener {
+        private var maxHeight = 500
+
+        init {
+            maxHeight = height
+        }
+
+        override fun onGlobalLayout() {
+            if (view.height > maxHeight) view.layoutParams.height = maxHeight
+        }
+    }
+
 
 }

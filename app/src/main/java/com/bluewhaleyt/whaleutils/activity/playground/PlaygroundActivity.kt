@@ -3,18 +3,18 @@ package com.bluewhaleyt.whaleutils.activity.playground
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
+import com.bluewhaleyt.common.common.catchException
 import com.bluewhaleyt.common.common.string
+import com.bluewhaleyt.common.coroutines.runInBackground
+import com.bluewhaleyt.common.coroutines.runOnUI
 import com.bluewhaleyt.common.widget.showSnackbar
 import com.bluewhaleyt.whaleutils.PromptManager
 import com.bluewhaleyt.whaleutils.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 open class PlaygroundActivity : AppCompatActivity() {
 
@@ -38,6 +38,10 @@ open class PlaygroundActivity : AppCompatActivity() {
         this.binding = binding
     }
 
+    fun toast(text: String) {
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+    }
+
     fun showDialog(
         title: String,
         message: String
@@ -54,24 +58,25 @@ open class PlaygroundActivity : AppCompatActivity() {
         dialog.dismiss()
     }
 
-    fun catchException(tag: String = this.javaClass.simpleName, code: suspend () -> Unit) {
-        lifecycleScope.launch(Dispatchers.IO) {
-            try {
-                code()
-            } catch (e: Exception) {
-                Log.e(tag, e.message, e)
-                withContext(Dispatchers.Main) {
-                    showSnackbar(
-                        text = e.message.toString(),
-                        actionText = "inspect"
-                    ) {
-                        showDialog(
-                            title = "inspect",
-                            message = e.stackTrace.string()
-                        )
+    fun catchExceptionWithSnackbar(tag: String = this.javaClass.simpleName, code: suspend () -> Unit) {
+        runInBackground {
+            catchException(
+                catchAction = { e ->
+                    Log.e(tag, e.message, e)
+                    runOnUI {
+                        showSnackbar(
+                            text = e.message.toString(),
+                            actionText = "inspect"
+                        ) {
+                            showDialog(
+                                title = "inspect",
+                                message = e.stackTrace.string()
+                            )
+                        }
                     }
                 }
-            }
+            ) { code() }
         }
     }
+
 }

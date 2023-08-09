@@ -3,13 +3,22 @@ $dokka.linkExtension:html
 
 module:common
 com.bluewhaleyt.common.animation
+com.bluewhaleyt.common.color
 com.bluewhaleyt.common.common
+com.bluewhaleyt.common.coroutines
+com.bluewhaleyt.common.image
 com.bluewhaleyt.common.json
 com.bluewhaleyt.common.storage
 com.bluewhaleyt.common.system
 com.bluewhaleyt.common.widget
+module:file-management
+com.bluewhaleyt.file_management.core
+com.bluewhaleyt.file_management.saf
+com.bluewhaleyt.file_management.saf.helper.uri
+com.bluewhaleyt.file_management.search
 module:git
 com.bluewhaleyt.git
 module:network
 com.bluewhaleyt.network
 com.bluewhaleyt.network.okhttp
+com.bluewhaleyt.network.openai

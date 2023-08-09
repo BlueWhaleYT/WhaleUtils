@@ -37,7 +37,8 @@ class Card @JvmOverloads constructor(
     private var isEmptyEnabled = false
     private var isDividerEnabled = true
     private var isFoldButtonEnabled = false
-    private var isExpand = true
+
+    var isExpand = true
 
     init {
         binding = WidgetLayoutCardBinding.inflate(context.getLayoutInflater())

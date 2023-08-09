@@ -50,6 +50,19 @@ android {
     }
 }
 
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "com.github.BlueWhaleYT.WhaleUtils"
+                artifactId = "network"
+                version = "1.0.0"
+            }
+        }
+    }
+}
+
 dependencies {
     api(platform("com.squareup.okhttp3:okhttp-bom:4.10.0"))
     api("com.squareup.okhttp3:okhttp")

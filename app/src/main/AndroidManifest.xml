@@ -55,6 +55,21 @@
             android:label="Compiler"
             android:parentActivityName=".activity.MainActivity" />
 
+        <activity
+            android:name=".activity.playground.file_management.FileManagementPlaygroundActivity"
+            android:label="File Management"
+            android:parentActivityName=".activity.MainActivity" />
+
+        <activity
+            android:name=".activity.JavaTestActivity"
+            android:label="Java test activity"
+            android:parentActivityName=".activity.MainActivity" />
+
+        <activity
+            android:name=".activity.ChatActivity"
+            android:label="chat"
+            android:parentActivityName=".activity.MainActivity" />
+
     </application>
 
 </manifest>
